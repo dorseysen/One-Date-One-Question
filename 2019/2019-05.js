@@ -37,7 +37,7 @@ console.log(getType_20190505('1'));
 // ]
 // 请对该数组按时间进行排序。
 
-let arr = [
+let arr20190506 = [
     {
         TIME: '2019-03-02 23:16:08',
         records: 'xiaoming'
@@ -49,9 +49,9 @@ let arr = [
     {
         TIME: '2019-03-02 23:16:10',
         records: 'xiaohong'
-    },
+    }
 ];
-const arrSort20190606 = arr => {
+const arrSort20190506 = arr => {
 
     let median = {},
         sortArr = [];
@@ -61,20 +61,27 @@ const arrSort20190606 = arr => {
         sortArr.push(time);
         median[time] = item;
     });
-    
+
     sortArr.sort((a, b) => a - b);
 
     return sortArr.map(item => {
         return median[item];
     })
 }
-console.log(arrSort20190606(arr));
+console.log(arrSort20190506(arr20190506));
 
 //  2019-05-07:  当a的值在什么的情况下，可以使下列式子打印出1：
-
 // if (a == 1 && a == 2 && a == 3) {
 //     console.log(1);
 // }
-
+let a = {
+    val: 1,
+    valueOf: function () {
+        return a.val ++;
+    }
+}
+if (a == 1 && a == 2 && a == 3) {
+    console.log(1);
+}
 
 //  2019-05-08： 有字符串'dhaoshdaoidhadia'，打印出最长不重复的字符串片段。
