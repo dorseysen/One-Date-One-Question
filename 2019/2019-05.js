@@ -85,3 +85,43 @@ if (a == 1 && a == 2 && a == 3) {
 }
 
 //  2019-05-08： 有字符串'dhaoshdaoidhadia'，打印出最长不重复的字符串片段。
+
+// the first solution
+const longestStr_20190508_00 = str => {
+
+    let res = '', medianArr = [];
+
+    for (let i = 0; i < str.length; i++) {
+
+        if (medianArr.indexOf(str[i]) > -1) {
+            
+            res = res.length > medianArr.length ? res : medianArr.join('');
+            i -= ( medianArr.length - 1 );
+            medianArr = [];
+            
+        } else {
+            medianArr.push(str[i]);
+        }
+    }
+    return res;
+}
+console.log(longestStr_20190508_00('wawawawadorseyhahaha'));
+
+// the second solution
+const longestStr_20190508_01 = str => {
+
+    let res = '', median = '';
+
+    for (let i = 0; i < str.length; i++) {
+        
+        let index = median.indexOf(str[i]);
+
+        index > -1 ? median = median.substr( - index ) : median += str[i];
+        
+        res = res.length < median.length ? median : res;
+    }
+    return res;
+}
+console.log(longestStr_20190508_01('wawawawadorseyhahaha'));
+
+//  2019-05-09：请写一个获取url参数的函数，将所有参数转化成key-value键值对
