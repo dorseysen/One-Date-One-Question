@@ -184,7 +184,17 @@ console.log(swapData_20190512(24, 5));
 
 //  2019-05-13：找出某个数组最大的差值，比如[1, 2, 8, 23, 4]，最大的差值为23 - 1 = 22
 
-const MaxDiff = arr => {
+const maxDiff_20190513 = arr => {
 
-    
+    let max, min;
+
+    arr.forEach(item => {
+        max = max > item ? max : item;
+        min = min < item ? min : item;
+    });
+
+    return max - min;
 }
+console.log(maxDiff_20190513([1, 2]));
+
+//  2019-05-14：输出某个范围内的素数
