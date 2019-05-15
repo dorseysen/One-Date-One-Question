@@ -198,3 +198,21 @@ const maxDiff_20190513 = arr => {
 console.log(maxDiff_20190513([1, 2]));
 
 //  2019-05-14：输出某个范围内的素数
+
+const getPrimeNumber_20190514 = (min, max) => {
+
+    let res = [];
+    for ( let i = min; i <= max; i ++ ) {
+        
+        for ( var k = 2; k <= Math.floor(i / 2); k ++ ) {
+            
+            if ( i % k === 0 ) break;
+        }
+
+        if ( k === ( Math.floor(i / 2) + 1 ) ) res.push( i );
+    }
+    return res;
+}
+console.log(getPrimeNumber_20190514(1, 20));
+
+//  2019-05-15：把一个数组arr按照指定的数组大小size分割成若干个数组块
