@@ -215,4 +215,18 @@ const getPrimeNumber_20190514 = (min, max) => {
 }
 console.log(getPrimeNumber_20190514(1, 20));
 
-//  2019-05-15：把一个数组arr按照指定的数组大小size分割成若干个数组块
+//  2019-05-15：把一个数组arr按照指定的数组大小size分割成若干个数组块,比如输入是[1,2,3,5,4]和2，输出[[1,2],[3,5],[4]]
+const sliceArr_20190515 = (arr, size) => {
+
+    // console.log(arr.slice(2, 10));
+    let res = [],
+        i = 0;
+    while (i < arr.length) {
+        res.push(arr.slice(i, i + size));
+        i += size;
+    }
+    return res;
+}
+console.log(sliceArr_20190515([2, 3, 4, 5, 6, 7, 8, 9, 0, 10], 3));
+
+//  2019-05-16：判断一个字符串是否是回文字符串
