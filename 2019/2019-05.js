@@ -256,4 +256,54 @@ const randomInt_20190519 = (min, max) => Math.floor(Math.random() * (max - min) 
 
 //  2019-05-20：今天是520，随意说说用JavaScript表达爱意的一种方式，最好是贴出你的代码。
 
+console.log('你问我爱你有多深 我爱你有几分 我的情也真 我的爱也真 月亮代表我的心');
 
+console.log('You ask how deep I love you I love you how much my love is true my love is true the moon stands for my heart')
+
+const loveYou = () => {
+
+    let theMoon, myLove;
+
+    const youAskMe = 'how deep I love you';
+    
+    const thenYouAskMe = 'how much I love you';
+
+    myLove = true;
+    myLove === true;
+
+    theMoon = 'my heart';
+
+    return 'forever';
+}
+loveYou();
+//  2019-05-21：手写一个生成UUID字符串的函数
+
+const getUUID = () => new Date().getTime().toString(32) + Math.floor((Math.random() * 999999)).toString(32);
+
+console.log(getUUID());
+
+//  2019-05-22：求一个数组中，最大与最小数之差
+
+const differenceVal = arr => Math.max.apply(Math, arr) - Math.min.apply(Math, arr);
+
+console.log(differenceVal([1, 2, 56, 88, 12, 4, -1, -21, -24.1, 56.4]));
+
+//  2019-05-23：输入：abcd123efg 输出 efg123abcd
+const changeBlockLocation = str => str.replace(/(^[a-zA-Z]+)(\d+)([a-zA-Z]+$)/g, '$3$2$1');
+
+console.log(changeBlockLocation('abcd123efg'));
+
+//  2019-05-24：输入yyyy-MM-dd，输出当前时间的年月日，格式根据输入来，假如输入换成yyyy年MM月dd日，输出得自然更改格式
+
+const dateFormat = (reg) => {
+
+    let date = new Date();
+
+    return reg.replace('yyyy', date.getFullYear())
+        .replace('MM', numFormat( date.getMonth() + 1 ))
+        .replace('dd', date.getDate());
+}
+const numFormat = num => num < 10 ? '0' + num : num;
+
+
+console.log(dateFormat('yyyy-MM-dd'));
