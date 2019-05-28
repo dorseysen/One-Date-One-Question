@@ -16,13 +16,13 @@ export const render = {
         let html = `
         <div class='card'>
         <div class='question'>
-            ${ question}
+            ${ question }
         </div>
         <div class='solution'>
                 <div class='result'>
                     <span>输出结果：</span>
                     <pre class='core-result'>
-                        ${ core}
+                        ${ core }
                     </pre>
                 </div>
             </div>
