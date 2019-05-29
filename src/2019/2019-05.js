@@ -359,8 +359,40 @@ export const solution_201905 = {
         return factorial(4);
     },
     "2019-05-28"() {
-        //  2019-05-28：斐波那契数列。即：1、1、2、3、5、8、13、21...求第N个数，如输入是8，输出是21，并打印该完整数列
-        return "2019-05-28";
+        //  2019-05-28：斐波那契数列。即：1、1、2、3、5、8、13、21...求第N个数，输入正整数，如输入是8，输出是21，并打印该完整数列
+
+        // the first solution
+        //  简单版递归
+        const Fibonacci_0 = index => {
+
+            if (index <= 2) return 1;
+
+            return Fibonacci_0(index - 1) + Fibonacci_0(index - 2);
+        }
+        console.log(Fibonacci_0(8));
+        //  the second solution
+        //  指针偏移
+        const Fibonacci = index => {
+
+            if (index <= 0 || index !== Math.floor(index)) { throw "请输入正整数"; }
+            
+            if (index <= 2) {
+
+                return index === 1 ? { res: 1, sequence: [1] } : { res: 1, sequence: [1, 1] }
+            }
+
+            let res = 0, i = 1, j = 1, p = 2, sequence = [1, 1];
+
+            while( ++ p <= index) {
+                res = i + j;
+                sequence.push(res);
+                i = j;
+                j = res;
+            }
+            return { res: res, sequence: sequence };
+        }
+
+        return Fibonacci(8);
     },
     "2019-05-29"() {
         //  2019-05-29：随机生成指定长度字符串。如输入8，则随意输出abc12Dfe，字符范围限制在字母与数字。
