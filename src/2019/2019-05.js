@@ -205,6 +205,7 @@ export const solution_201905 = {
         const getPrimeNumber_20190514 = (min, max) => {
 
             let res = [];
+
             for ( let i = min; i <= max; i ++ ) {
                 
                 for ( var k = 2; k <= Math.floor(i / 2); k ++ ) {
@@ -212,7 +213,7 @@ export const solution_201905 = {
                     if ( i % k === 0 ) break;
                 }
 
-                if ( k === ( Math.floor(i / 2) + 1 ) ) res.push( i );
+                k === ( Math.floor(i / 2) + 1 ) && res.push( i );
             }
             return res;
         }
@@ -349,9 +350,10 @@ export const solution_201905 = {
         //  2019-05-27：计算一个正整数的阶乘，比如输入：4，则输出：1*2*3*4 = 24。
 
         const factorial = num => {
+            
             let res = 1;
-            while (num) {
-                res *= num--;
+            while ( num ) {
+                res *= num --;
             }
             return res;
         }
@@ -395,25 +397,99 @@ export const solution_201905 = {
         return Fibonacci(8);
     },
     "2019-05-29"() {
-        //  2019-05-29：随机生成指定长度字符串。如输入8，则随意输出abc12Dfe，字符范围限制在字母与数字。
-        return "2019-05-29";
+        //  2019-05-29：随机生成指定长度字符串。如输入8，则随意输出abc12dfe，字符范围限制在字母与数字。
+
+        //  the first solution
+        const createFixLengthString_0 = len => {
+
+            let res = '';
+            while ( len -- ) {
+
+                res += Math.floor(Math.random() * 36).toString(36);
+            } 
+            return res;
+        }
+        console.log(createFixLengthString_0(8));
+        
+        // 假如此时需要在原有的基础上使输出有大写的字母，也就是差不多是一个base64码，此时需要几个JavaScript原生轮子配合使用。
+        //  the second solution
+        const createFixLengthString = len => {
+
+            let res = '', random;
+
+            while (len--) {
+                random = Math.floor(Math.random() * 62);
+                res += random >= 36 ? (random - 26).toString(36).toUpperCase() : random.toString(36);
+            }
+            return res;
+        }
+        return createFixLengthString(16);
     },
     "2019-05-30"() {
-        //  2019-05-30：sku算法———多维属性状态判断
-        //  算法简化：假设只有3种状态：1、颜色：红蓝灰。2、尺码、大中小。型号、ABC。
-        //  此时库存只有以下数据源：
-        // [
-        //     { "颜色": "红", "尺码": "大", "型号": "A", "skuId": "3158054" },
-        //     { "颜色": "白", "尺码": "中", "型号": "B", "skuId": "3133859" },
-        //     { "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
-        //  ]
-        // 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
-        return "2019-05-30";
+        //  2019-05-30：统计一个字符串中出现最多的字符，并返回该字符的次数，同时返回剔除掉该字符后的字符串。
+        //  如：输入'dhaosdhaincapdnaaaaa'，输出：[8, 'dhosdhincpdn']
+        
+        //  the first solution
+        const frequentString_0 = str => {
+            
+            let res = [0, ''],
+                map = {};
+
+            for (let i = 0; i < str.length; i ++) {
+                
+                map[str[i]] = 'undefined' === typeof map[str[i]] ? 1 : map[str[i]] + 1;              
+            }
+
+            for (let i in map) {
+                
+                res = res[0] > map[i] ? res : [map[i], i];
+            }
+
+            res[1] = str.replace(new RegExp(res[1], 'gm'), '');
+
+            return res;
+        }
+
+        return frequentString_0('dhaosdhaincapdnaaaaa');
+
+        //  the second solution
+
+        // const frequentString = str => str.split('').filter((item, index) => {
+        //     console.log(item)
+        //     console.log(index)
+        // })
+
+        // return frequentString('dhaosdhaincapdnaaaaa');
     },
     "2019-05-31"() {
-        
-        //  2019-05-31：统计一个字符串中出现最多的字符，并返回该字符的次数，同时返回剔除掉该字符后的字符串。
-        //  如：输入'dhaosdhaincapdnaaaaa'，输出：[8, 'dhosdhincpdn']
-        return "2019-05-31";
+        //  实现在10 ~ 100这个范围内随机取10个数，存入数组，并做排序
+        //  需要注意可能会出现重复的情况
+        class getNums {
+
+            constructor(min, max) {
+                this.map = {};
+                this.res = [];
+                this.index = 1;
+                this.run(min, max);
+            }
+            init(min, max) {
+                
+                let random = this.createRandom(min, max);
+
+                'undefined' === typeof this.map[random] && (this.res.push(random), this.map[random] = this.index ++);
+            }
+            createRandom(min, max) {
+                return Math.floor(Math.random() * (max - min) + min);
+            }
+            run(min, max) {
+
+                while (this.res.length < 10) {
+                    this.init(min, max);
+                }
+                this.res.sort((a, b) => a - b);
+            }
+        }
+
+        return new getNums(10, 100).res;
     }
 }
