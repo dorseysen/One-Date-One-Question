@@ -105,7 +105,34 @@ export const solution_201906 = {
         return new leapYear(20);
     },
     "2019-06-04"() {
-        //  2019-05-30：sku算法———多维属性状态判断
+        //  2019-06-04： 找到一个英文句子中最长的单词，并输出这个单词和单词长度，当有多个最长单词时允许只输出其中一个。
+        //  如输入：I am a boy with a dream, who want to make some achievements in software industry, little but clinging.
+        //  输出：['achievements', 12]
+
+        //  the first solution
+        const theLongestWord_0 = string => {
+            return Math.max.apply(-Infinity, string.replace(/[\,\.\:\'\"]/g, '').split(' ').map(item => item.length));
+        }
+        console.log(theLongestWord_0('I am a boy with a dream, who want to make some achievements in software industry, little but clinging.'));
+
+        //  the second solution
+        //  export one of results. of course all results can be export by remove the "[0]"
+        const theLongestWord = string => {
+
+            let arr = string.replace(/[\,\.\:\'\"]/g, '').split(' ').map(item => [item, item.length]),
+                times = Math.max.apply(-Infinity, arr.map(item => item[1]));
+            
+            return arr.filter( item => item[1] === times )[0];
+        }
+        
+        return theLongestWord('I am a boy with a dream, who want to make some achievements in software industry, little but clinging.');
+    },
+    "2019-06-05"() {
+        //  2019-06-05：写一个函数，用于计算在当下时间前几个月是什么时候。
+        return "2019-06-05";
+    },
+    "2019-06-06"() {
+        //  2019-07-30：sku算法———多维属性状态判断
         //  算法简化：假设只有3种状态：1、颜色：红蓝灰。2、尺码、大中小。型号、ABC。
         //  此时库存只有以下数据源：
         // [
@@ -114,5 +141,6 @@ export const solution_201906 = {
         //     { "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
         //  ]
         // 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
+        return "2019-06-06";
     }
 }
