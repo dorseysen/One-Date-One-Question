@@ -1,0 +1,52 @@
+@import './one-date-one-question-animate.scss';
+
+html,body,div,p,ul,li{
+    margin:0;padding:0;
+}
+body{
+    background-color: #000;
+    color: #fff;
+}
+.card-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // justify-content: center;
+}
+
+.card{
+    width: 300px;
+    // height: 105px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    line-height: 35px;
+    color: rgb(152, 235, 250);
+    cursor: pointer;
+    box-shadow: -1px 1px 5px #fff;
+    
+    &:hover{
+        background-color: rgba(255, 255, 255, .3);
+    }
+}
+
+.core-detail{
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    bottom: 10%;
+    border-radius: 10px;
+    box-shadow: -2px 2px 8px #fff;
+    background-color: #000;
+    font: 16px 'Times New Roman';
+
+    .close-btn{
+        float: right;
+        padding-right: 10px;
+        cursor: pointer;
+        &:hover{
+            color: skyblue;
+        }
+    }
+}

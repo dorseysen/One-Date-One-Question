@@ -2,31 +2,42 @@
 
 export const render = {
 
+    append(string) {
+        let dom = document.createElement('div');
+        dom.innerHTML = string.trim();
+        return dom.childNodes[0];
+    },
 
     renderHtml() {
         
         let question = `2019-05-25：hello-my-name-is-dorsey-sen变为驼峰式的：helloMyNameIsDorseySen`;
-
-        let core = `const getType_20190505_0 = obj => { 
-
-            let typeStr = Object.prototype.toString.call(obj);
-        
-            return typeStr.split(' ')[1].split(']')[0].toLowerCase();
-        }`;
         let html = `
-        <div class='card'>
-        <div class='question'>
-            ${ question }
-        </div>
-        <div class='solution'>
-                <div class='result'>
-                    <span>输出结果：</span>
-                    <pre class='core-result'>
-                        ${ core }
-                    </pre>
-                </div>
+        <div class='card-container'>
+            <div class='card'>
+                ${ question }
             </div>
         </div>`;
-        return html;
+
+        return this.append(html);
+    },
+    renderCoreDetail() {
+        let html = `
+        <div class='core-detail coreDetail animated zoomIn'>
+            <div class='close-btn closeBtn'> × </div>
+            <pre>
+                const factorial = num => {
+        
+                    let res = 1;
+                    while ( num ) {
+                        res *= num --;
+                    }
+                    return res;
+                }
+                
+                return factorial(4);
+            </pre>
+        </div>
+        `
+        return this.append(html);
     }
 }

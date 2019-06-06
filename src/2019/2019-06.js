@@ -129,9 +129,36 @@ export const solution_201906 = {
     },
     "2019-06-05"() {
         //  2019-06-05：写一个函数，用于计算在当下时间前几个月是什么时候。
-        return "2019-06-05";
+        const dateFormat = num => num < 10 ? '0' + num : num;
+
+        const preMonth = num => {
+
+            let date = new Date(),
+                year = date.getFullYear(),
+                month = date.getMonth() + 1,
+                flag = 0;
+            
+            month = month > num % 12 ? month - num % 12 : (flag = 1, month + 12 - num % 12);
+            year = year - Math.floor(num / 12) - flag;
+
+            return year + '-' + dateFormat(month) + '-' + dateFormat(date.getDate());
+        }
+        return preMonth(39);
     },
     "2019-06-06"() {
+        /*  子数组最大和
+            比如输入：[1, 2, 3, 4, -5, 6, -7, 8],由于：1 + 2 + 3 + 4 + (-5) + 6 + (-7) + 8 = 12是最大的和。
+            故而输出：[1, 2, 3, 4, -5, 6, -7, 8]
+            子数组泛指一切由该输入数组任意连续成员所组成的数组，比如[1, 2, 3, 4]是一个子数组，[3, 4, -5]也是子数组,[-7]也是子数组
+            甚至输入数组本身也可以作为它的子数组 */
+        const maximunSum = arr => {
+
+        }
+
+        return "2019-06-06";
+    },
+    "2019-06-07"() {
+
         //  2019-07-30：sku算法———多维属性状态判断
         //  算法简化：假设只有3种状态：1、颜色：红蓝灰。2、尺码、大中小。型号、ABC。
         //  此时库存只有以下数据源：
@@ -141,6 +168,5 @@ export const solution_201906 = {
         //     { "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
         //  ]
         // 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
-        return "2019-06-06";
     }
 }
