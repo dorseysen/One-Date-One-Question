@@ -18,7 +18,7 @@ npm run build
 
 
 ### 2019年4月
-[入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-04.js)
+[本月入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-04.js)
 
 > 2019-04-28：[1, 2, 3, 50, 88, 65, 4, 89, 1111]，输出[88, 89, 1111]。 （大于80的所有数），至少两种解法。  
 
@@ -27,7 +27,7 @@ npm run build
 > 2019-04-30： 有数组：[1, 2, 100, 80, 33, 90] 和 [-8, 77, 90, 34, 56, 1179]，求中位数。  
 
 ### 2019年5月
-[入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-05.js)
+[本月入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-05.js)
 
 > 2019-05-05： 请写一个函数，用于判断类型。比如[1]返回array，1返回number，'1'返回string。  
 
@@ -56,3 +56,29 @@ npm run build
 > [2019-05-17：写一个简单的数据深拷贝，纯数据](https://github.com/dorseysen/One-Date-One-Question/issues/11)  
 
 > [2019-05-18：解释一下什么是短路、断路操作符](https://github.com/dorseysen/One-Date-One-Question/issues/12)  
+
+> [2019-05-19：JavaScript写一个获取某范围内随机整数的函数，可随意改变这个范围](https://github.com/dorseysen/One-Date-One-Question/issues/13)  
+
+> [2019-05-20：今天是520，随意说说用JavaScript表达爱意的一种方式，最好是贴出你的代码。](https://github.com/dorseysen/One-Date-One-Question/issues/14)  
+
+> [2019-05-21：手写一个生成UUID字符串的函数](https://github.com/dorseysen/One-Date-One-Question/issues/15)  
+
+> [2019-05-22：求一个数组中，最大与最小数之差](https://github.com/dorseysen/One-Date-One-Question/issues/16)  
+
+> [2019-05-23：输入：abcd123efg 输出 efg123abcd](https://github.com/dorseysen/One-Date-One-Question/issues/17)  
+
+> [2019-05-24：输入yyyy-MM-dd，输出当前时间的年月日，格式根据输入来，假如输入换成yyyy年MM月dd日，输出得自然更改格式](https://github.com/dorseysen/One-Date-One-Question/issues/18)  
+
+> [2019-05-25：hello-my-name-is-dorsey-sen变为驼峰式的：helloMyNameIsDorseySen](https://github.com/dorseysen/One-Date-One-Question/issues/19)  
+
+> [2019-05-26：多个数组合并，并扁平化，同时去重](https://github.com/dorseysen/One-Date-One-Question/issues/20)  
+
+> [2019-05-27：计算一个正整数的阶乘，比如输入：4，则输出：1*2*3*4 = 24。](https://github.com/dorseysen/One-Date-One-Question/issues/21)  
+
+> [2019-05-28：斐波那契数列。即：1、1、2、3、5、8、13、21...求第N个数，输入正整数，如输入是8，输出是21，并打印该完整数列](https://github.com/dorseysen/One-Date-One-Question/issues/22)  
+
+> [2019-05-29：随机生成指定长度字符串。如输入8，则随意输出abc12dfe，字符范围限制在字母与数字。](https://github.com/dorseysen/One-Date-One-Question/issues/23)  
+
+> [2019-05-30：统计一个字符串中出现最多的字符，并返回该字符的次数，同时返回剔除掉该字符后的字符串。如：输入'dhaosdhaincapdnaaaaa'，输出：[8, 'dhosdhincpdn']](https://github.com/dorseysen/One-Date-One-Question/issues/24)  
+
+> [2019-05-31：实现在10 ~ 100这个范围内随机取10个数，存入数组，并做排序，需要注意可能会出现重复的情况](https://github.com/dorseysen/One-Date-One-Question/issues/24)  

@@ -462,7 +462,7 @@ export const solution_201905 = {
         // return frequentString('dhaosdhaincapdnaaaaa');
     },
     "2019-05-31"() {
-        //  实现在10 ~ 100这个范围内随机取10个数，存入数组，并做排序
+        //  2019-05-31：实现在10 ~ 100这个范围内随机取10个数，存入数组，并做排序
         //  需要注意可能会出现重复的情况
         class getNums {
 
