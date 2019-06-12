@@ -1,7 +1,7 @@
 # One-Date-One-Question
 this is a space for self-improvement of mine
 
-&emsp;本项目原是个人想通过每天一题的方式提高自己的逻辑与算法思维，这里分享给大家，一起学习一起进步。如果觉得还不错的话给个star，谢谢。
+&emsp;&emsp;本项目原是个人想通过每天一题的方式提高自己的逻辑与算法思维，这里分享给大家，一起学习一起进步。如果觉得还不错的话给个star，谢谢。
 
 #### 工程启动步骤
 
@@ -30,6 +30,8 @@ npm run build
 
 ### 2019年5月
 [本月入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-05.js)
+
+#### 五一至五四劳动节休息
 
 > 2019-05-05：请写一个函数，用于判断类型。比如[1]返回array，1返回number，'1'返回string。  
 

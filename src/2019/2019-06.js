@@ -197,7 +197,7 @@ export const solution_201906 = {
         // 这里仅仅是做大小写字母与数字的加密，注意的是 9 变 0。
         // 大写仍变大写，小写仍变小写，数字仍变数字
         
-        const kaiSaPassword = (str, offset) => {
+        const CaesarPassword = (str, offset) => {
 
             offset = 'string' === typeof offset ? Number(offset) : offset;
 
@@ -231,7 +231,7 @@ export const solution_201906 = {
             }
             return res;
         }
-        return kaiSaPassword('dorsey', 1);
+        return CaesarPassword('dorsey', 1);
 
     },
     "2019-06-08" () {
