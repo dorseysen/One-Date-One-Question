@@ -29,13 +29,13 @@ npm run build
 ### 2019年5月
 [本月入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-05.js)
 
-> 2019-05-05： 请写一个函数，用于判断类型。比如[1]返回array，1返回number，'1'返回string。  
+> 2019-05-05：请写一个函数，用于判断类型。比如[1]返回array，1返回number，'1'返回string。  
 
 > 2019-05-06：JSON数据排序。  
 
-> [2019-05-07:  当a的值在什么的情况下，可以使下列式子打印出1：if (a == 1 && a == 2 && a == 3) {console.log(1);}](https://github.com/dorseysen/One-Date-One-Question/issues/1)  
+> [2019-05-07：当a的值在什么的情况下，可以使下列式子打印出1：if (a == 1 && a == 2 && a == 3) {console.log(1);}](https://github.com/dorseysen/One-Date-One-Question/issues/1)  
 
-> [2019-05-08： 有字符串'dhaoshdaoidhadia'，打印出最长不重复的字符串片段。](https://github.com/dorseysen/One-Date-One-Question/issues/2)  
+> [2019-05-08：有字符串'dhaoshdaoidhadia'，打印出最长不重复的字符串片段。](https://github.com/dorseysen/One-Date-One-Question/issues/2)  
 
 > [2019-05-09：请写一个获取url参数的函数，将所有参数转化成key-value键值对](https://github.com/dorseysen/One-Date-One-Question/issues/3)  
 
@@ -82,3 +82,30 @@ npm run build
 > [2019-05-30：统计一个字符串中出现最多的字符，并返回该字符的次数，同时返回剔除掉该字符后的字符串。如：输入'dhaosdhaincapdnaaaaa'，输出：[8, 'dhosdhincpdn']](https://github.com/dorseysen/One-Date-One-Question/issues/24)  
 
 > [2019-05-31：实现在10 ~ 100这个范围内随机取10个数，存入数组，并做排序，需要注意可能会出现重复的情况](https://github.com/dorseysen/One-Date-One-Question/issues/24)  
+
+### 2019年6月
+[本月入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-06.js)
+
+> [ 2019-06-01：今天是六一儿童节，老师带领班上的小朋友表演节目，但小朋友们需要鼓励，所以老师准备了很多块巧克力来作为奖品，巧克力有大有小，小朋友愿意上台表演的最小鼓励也是有高有低，而且巧克力既不可以多块给同一人，也不能掰开分给多个小朋友。已知巧克力数和小朋友数目一致，请问如何让尽可能多的小朋友上台表演的前提下，分出去尽可能多（总重量最大）的巧克力？比如说，有重量为[1, 1.2, 1.2, 1.3, 1, 1.5, 2.5, 1.4, 1.6, 2]的巧克力和要求为[1.3, 1.1, 1.2, 1, 2, 1.4, 1.6, 1.7, 1.3, 1.5]的小朋友](https://github.com/dorseysen/One-Date-One-Question/issues/25)  
+
+> [2019-06-02：约瑟夫环问题](https://github.com/dorseysen/One-Date-One-Question/issues/26)  
+
+> [2019-06-03：打印接下来的N个闰年，若今年即为闰年则从今年开始打印](https://github.com/dorseysen/One-Date-One-Question/issues/27)  
+
+> [2019-06-04： 找到一个英文句子中最长的单词，并输出这个单词和单词长度，当有多个最长单词时允许只输出其中一个。如输入：I am a boy with a dream, who want to make some achievements in software industry, little but clinging. 输出：['achievements', 12]](https://github.com/dorseysen/One-Date-One-Question/issues/28)  
+
+> [2019-06-05：写一个函数，用于计算在当下时间前几个月是什么时候。](https://github.com/dorseysen/One-Date-One-Question/issues/29)  
+
+> [2019-06-06：求某一范围内的水仙花数，水仙花数的定义是：某数数位的立方和等于它本身，如：1³ + 5³ + 3³ = 153，153就是水仙花数](https://github.com/dorseysen/One-Date-One-Question/issues/30)  
+
+> [2019-06-07：恺撒密码](https://github.com/dorseysen/One-Date-One-Question/issues/31)  
+
+> [2019-06-08：删除数组中所有假值，如：null、undefined、''、false、0、NaN](https://github.com/dorseysen/One-Date-One-Question/issues/32)  
+
+> [2019-06-09：写一个深拷贝，不可以是纯数据的，这时候的拷贝体可能有function](https://github.com/dorseysen/One-Date-One-Question/issues/33)  
+
+> [2019-06-10：踩地雷。一队兵，排成一排，通过某个雷区，雷区间隔一定距离埋入地雷，假如间隔刚好5个人，问此时能安全通过雷区的还剩下谁。比如：1-30号的士兵，此时从1号开始间隔5个人站位有地雷，此时：1-5号都是安全的，但6号会被炸，7-11号也是安全的，12号被炸](https://github.com/dorseysen/One-Date-One-Question/issues/34)  
+
+> [2019-06-11：输入两个数组，返回两个数组中独有的值。如：[1, 2, 3] 和 [2, 3, 4, 5]。返回 [1] 及 [4, 5]，因为其中2和3不是独有的，去除掉](https://github.com/dorseysen/One-Date-One-Question/issues/35)  
+
+
