@@ -273,23 +273,60 @@ export const solution_201906 = {
         // 2019-06-11：输入两个数组，返回两个数组中独有的值。如：[1, 2, 3] 和 [2, 3, 4, 5]。
         // 返回 [1] 及 [4, 5]，因为其中2和3不是独有的，去除掉
 
-        return "2019-06-11"
+        // the first solution
+        const uniqueArray = ( arr0, arr1 ) => {
+
+            let median = arr0, res = {};
+
+            arr1.forEach(ele => {
+                median = median.filter(item => item !== ele);
+            });
+            res.first = median;
+            median = arr1;
+            arr0.forEach(ele => {
+                median = median.filter(item => item !== ele);
+            });
+            res.second = median;
+            return res;
+        }
+
+        //  the second solution
+        const uniqueArray_0 = ( arr0, arr1 ) => {
+
+            let filt = new Set();
+
+            for( let i = 0; i < arr0.length; i ++ ) {
+
+                for( let j = 0; j < arr1.length; j ++ ) {
+
+                    if( arr0[i] === arr1[j] ) {
+                        filt.add(arr0[i]);
+                        break;
+                    }
+                }
+            }
+            Array.from(filt).forEach(ele => {
+                arr0 = arr0.filter(item => item !== ele);
+                arr1 = arr1.filter(item => item !== ele);
+            });
+            
+            return {
+                first: arr0,
+                second: arr1
+            };
+        }
+
+        console.log(uniqueArray_0([1, 2, 3, 3], [2, 3, 3, 4, 5]));
+
+        return uniqueArray([1, 2, 3, 3], [2, 3, 3, 4, 5]);
     },
     "2019-06-12" () {
-        /*  2019-06-12: 子数组最大和
-            比如输入：[1, 2, 3, 4, -5, 6, -7, 8],由于：1 + 2 + 3 + 4 + (-5) + 6 + (-7) + 8 = 12是最大的和。
-            故而输出：[12, [1, 2, 3, 4, -5, 6, -7, 8]]
-            子数组泛指一切由该输入数组任意连续成员所组成的数组，比如[1, 2, 3, 4]是一个子数组，[3, 4, -5]也是子数组, [-7]也是子数组
-            甚至输入数组本身也可以作为它的子数组 */
-        const maximumSum = arr => {
+        //  2019-06-12：截断一个字符串！
+        // 如果字符串的长度比指定的参数num长，则把多余的部分用...来表示。
+        // 值得注意的是，插入到字符串尾部的三个点号也会计入字符串的长度。
+        // 如果指定的参数num小于或等于3，则添加的三个点号不会计入字符串的长度。
+        
 
-            let median = 0, res;
-
-            for( let i = 0; i < arr.length; i ++ ) {
-
-                
-            }
-        }
         return "2019-06-12";
     },
     "2019-06-13" () {
@@ -309,5 +346,22 @@ export const solution_201906 = {
         //  2019-06-14：杨辉三角
 
         return "2019-06-14";
+    },
+    "2019-06-15" () {
+        /*  2019-06-12: 子数组最大和
+            比如输入：[1, 2, 3, 4, -5, 6, -7, 8],由于：1 + 2 + 3 + 4 + (-5) + 6 + (-7) + 8 = 12是最大的和。
+            故而输出：[12, [1, 2, 3, 4, -5, 6, -7, 8]]
+            子数组泛指一切由该输入数组任意连续成员所组成的数组，比如[1, 2, 3, 4]是一个子数组，[3, 4, -5]也是子数组, [-7]也是子数组
+            甚至输入数组本身也可以作为它的子数组 */
+        const maximumSum = arr => {
+
+            let median = 0, res;
+
+            for( let i = 0; i < arr.length; i ++ ) {
+
+                
+            }
+        }
+        return "2019-06-15";
     }
 }
