@@ -112,4 +112,11 @@ npm run build
 
 > [2019-06-11：输入两个数组，返回两个数组中独有的值。如：[1, 2, 3] 和 [2, 3, 4, 5]。返回 [1] 及 [4, 5]，因为其中2和3不是独有的，去除掉](https://github.com/dorseysen/One-Date-One-Question/issues/35)  
 
+> [2019-06-12：截断一个字符串！如果字符串的长度比指定的参数num长，则把多余的部分用...来表示。值得注意的是，插入到字符串尾部的三个点号也会计入字符串的长度。如果指定的参数num小于或等于3，则添加的三个点号不会计入字符串的长度。](https://github.com/dorseysen/One-Date-One-Question/issues/36)  
+
+> [2019-06-13：判断字符串以字母开头，后面可以是数字，下划线，字母，长度为6-30](https://github.com/dorseysen/One-Date-One-Question/issues/37)  
+
+> [2019-06-14： 找回缺失的数字，假设在一个1-100的数组中，缺失了某个数字，该数组未做排序，请问如何知晓缺失的是什么数。](https://github.com/dorseysen/One-Date-One-Question/issues/38)  
+
+
 
