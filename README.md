@@ -118,5 +118,9 @@ npm run build
 
 > [2019-06-14： 找回缺失的数字，假设在一个1-100的数组中，缺失了某个数字，该数组未做排序，请问如何知晓缺失的是什么数。](https://github.com/dorseysen/One-Date-One-Question/issues/38)  
 
+> [2019-06-15：混乱数组最大两个数之和。](https://github.com/dorseysen/One-Date-One-Question/issues/39)  
 
+> [2019-06-16：汽水问题，一瓶水2元，2个空瓶换一瓶水，3个瓶盖换一瓶水。10块钱能喝多少瓶水。](https://github.com/dorseysen/One-Date-One-Question/issues/40)  
+
+> [2019-06-17：在一个未排序的数组中找出是否有任意两数之和等于给定的数？比如输入[1,2,3,4,6] 和 9，由于6 + 3 = 9，故而输出：true，because 6 + 3 = 9。](https://github.com/dorseysen/One-Date-One-Question/issues/41)  
 
