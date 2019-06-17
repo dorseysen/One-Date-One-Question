@@ -348,11 +348,98 @@ export const solution_201906 = {
         //  2019-06-14： 找回缺失的数字
         //  假设在一个1-100的数组中，缺失了某个数字，该数组未做排序，请问如何知晓缺失的是什么数。
 
-        
+        //  由于输入1-100缺某个数的数组比较麻烦，这里采用代码生成的方式。
 
-        return "2019-06-14";
+        const createNums = () => {
+
+            let random = Math.floor(Math.random() * 100) + 1;
+
+            let arrNums = Array.from({length: 100}, (item, index) => index + 1 ).filter(item => item != random);
+
+            //  生成的数组打乱顺序
+            return arrNums.sort( () => Math.random() > 0.5 ? -1 : 1 );
+        }
+
+        //  简单查找
+        const getLostNum = arr => {
+
+            arr.sort((a, b) => a - b);
+
+            for(let i = 0; i < arr.length; i ++) {
+
+                if ( arr[i] !== i + 1 ) return i + 1;
+            }
+        }
+
+        return getLostNum(createNums());
     },
     "2019-06-15" () {
+
+        // 2019-06-15：混乱数组最大两个数之和。
+        const maxSum = arr => {
+
+            arr.sort((a, b) => b - a);
+
+            return arr[0] + arr[1];
+        }
+        
+        return maxSum([1, 28, 35, -9, 13, 25, 8, 19]);
+    },
+    "2019-06-16" () {
+        //  2019-06-16：汽水问题，一瓶水2元，2个空瓶换一瓶水，3个瓶盖换一瓶水。10块钱能喝多少瓶水。
+
+        class waterDrinking {
+
+            constructor (money) {
+                this.money = money;
+                this.init();
+                this.run();
+            }
+            init () {
+
+                this.water = Math.floor( this.money / 2 ),
+                this.bottle = 0,
+                this.cap = 0,
+                this.res = this.water;
+            }
+            eachRound () {
+                let bottle = this.bottle + this.water,
+                    cap = this.cap + this.water;
+                console.log(['总瓶数：' + this.res, '瓶盖数：' + cap, '瓶数：' + bottle, '本轮换水数：' + this.water]);
+                this.bottle = bottle % 2;
+                this.cap = cap % 3;
+                this.water = Math.floor(bottle / 2) + Math.floor(cap / 3);
+                this.res += this.water;
+            }
+            run () {
+
+                while(this.bottle + this.water >= 2 || this.cap + this.water >= 3) {
+                    this.eachRound();
+                }
+            }
+
+        }
+        return new waterDrinking(4);
+    },
+    "2019-06-17" () {
+        //  2019-06-17：在一个未排序的数组中找出是否有任意两数之和等于给定的数？
+        //  比如输入[1,2,3,4,6] 和 9，由于6 + 3 = 9，故而输出：true，because 6 + 3 = 9。
+
+        const hasTargetMember = (arr, target) => {
+
+            for(let i = 0; i < arr.length - 1; i ++) {
+
+                for(let j = arr.length - 1; j > i; j --) {
+
+                    if(arr[j] + arr[i] === target) return 'true, because ' + arr[i] + ' + ' + arr[j] + ' = ' + target;
+                }
+            }
+            return 'false，未曾发现有两数和等于目标值';
+        }
+
+        return hasTargetMember([1,2,3,4,5], 9);
+    },
+    "2019-06-18" () {
         /*  2019-06-12: 子数组最大和
             比如输入：[1, 2, 3, 4, -5, 6, -7, 8],由于：1 + 2 + 3 + 4 + (-5) + 6 + (-7) + 8 = 12是最大的和。
             故而输出：[12, [1, 2, 3, 4, -5, 6, -7, 8]]
@@ -367,21 +454,6 @@ export const solution_201906 = {
                 
             }
         }
-        return "2019-06-15";
-    },
-    "2019-06-16" () {
-        //  2019-06-16：杨辉三角
-
-        return "2019-06-16";
-    },
-    "2019-06-17" () {
-        //  2019-06-17：在一个未排序的数组中找出是否有任意两数之和等于给定的数？
-        //  比如输入[1,2,3,4,6] 和 9，由于6 + 3 = 9，故而输出：true，because 6 + 3 = 9。
-
-        return "2019-06-17";
-    },
-    "2019-06-18" () {
-        //  2019-06-17：混乱数组最大两个数之和。
         return "2019-06-18";
     },
     "2019-06-19" () {
@@ -402,5 +474,10 @@ export const solution_201906 = {
         // 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
         return "2019-06-20";
     },
+    "2019-06-21" () {
+        //  2019-06-16：杨辉三角
+
+        return "2019-06-21";
+    }
 
 }
