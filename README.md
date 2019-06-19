@@ -124,3 +124,7 @@ npm run build
 
 > [2019-06-17：在一个未排序的数组中找出是否有任意两数之和等于给定的数？比如输入[1,2,3,4,6] 和 9，由于6 + 3 = 9，故而输出：true，because 6 + 3 = 9。](https://github.com/dorseysen/One-Date-One-Question/issues/41)  
 
+> [2019-06-18: 斐波那契数列反向，知道一个斐波那契数列里的某个数（该数大于1），求该数在数列中的位置 。数列：1、1、2、3、5、8...](https://github.com/dorseysen/One-Date-One-Question/issues/42)  
+
+> [2019-06-19：写一个累加器：比如输入1,100，则输出：1 + 2 + 3 + ... + 99 + 100 = 5050](https://github.com/dorseysen/One-Date-One-Question/issues/43)  
+
