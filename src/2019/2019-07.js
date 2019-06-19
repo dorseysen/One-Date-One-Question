@@ -1,9 +1,9 @@
 export const solution_201907 = {
 
     init() {
-        console.log("==================== start 2019-06 =============================");
+        console.log("==================== start 2019-07 =============================");
 
-        for (let i in solution_201906) {
+        for (let i in this) {
 
             if (i !== 'init') {
                 console.log(this[i]());
@@ -118,5 +118,15 @@ export const solution_201907 = {
         Eat supper
 
         以此类推。*/
+    },
+    "2019-07-04" () {
+
+        //  BFS
+    },
+    "2019-07-05" () {
+
+        //  DFS
+        
     }
+
 }

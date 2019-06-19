@@ -33,7 +33,6 @@ export const render = {
                     }
                     return res;
                 }
-                
                 return factorial(4);
             </pre>
         </div>
