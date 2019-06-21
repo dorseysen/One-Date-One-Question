@@ -474,8 +474,54 @@ export const solution_201906 = {
         return largestCollection([[1, 2, 3], [5, 7, 8], [3, 4, 6], [8, 100, 90, -1]]);
     },
     "2019-06-21" () {
+
         //  2019-06-21：杨辉三角
-        return "2019-06-21";
+
+        class YangHuiMatrix {
+
+            constructor ( n ) {
+
+                this.n = n;
+                this.res = [];
+                this.unit = [];
+                this.init();
+            }
+            init () {
+
+                for(let i = 1; i <= this.n; i ++) {
+                    this.res.push( this.everyLine(i) );
+                }
+                this.render();
+            }
+            everyLine ( n ) {
+
+                let unit = [1];
+
+                if(n <= 2) {
+
+                    this.unit = n === 1 ? [1] : [1, 1];
+
+                    return this.unit;
+                }
+                else{
+
+                    for(let i = 2; i < n; i ++) {
+
+                        unit.push(this.unit[i - 2] + this.unit[i - 1]);
+                    }
+                }
+                unit.push(1);
+                this.unit = unit;
+                return unit;
+            }
+            render () {
+
+                this.res.forEach(item => console.log(item.join(" ")));
+            }
+
+        }
+
+        return new YangHuiMatrix(8);
     },
     "2019-06-22" () {
         //  2019-06-22：编写一个函数fn(Number n),将数字转为大写输出，如输入123，输出一百二十三
