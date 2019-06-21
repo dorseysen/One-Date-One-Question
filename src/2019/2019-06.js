@@ -156,7 +156,6 @@ export const solution_201906 = {
                 this.max = max;
                 this.narcissisticNum = [];
                 this.init();
-
             }
             init () {
                 for(let i = this.min; i <= this.max; i ++) {
@@ -186,7 +185,6 @@ export const solution_201906 = {
                 }
                 return res;
             }
-
         }
         return new narcissisticNum(100, 500);
     },
@@ -469,26 +467,22 @@ export const solution_201906 = {
         return accumulator(3, 100);
     },
     "2019-06-20" () {
-        //  2019-07-30：sku算法———多维属性状态判断
-        //  算法简化：假设只有3种状态：1、颜色：红蓝灰。2、尺码、大中小。型号、ABC。
-        //  此时库存只有以下数据源：
-        // [
-        //     { "颜色": "红", "尺码": "大", "型号": "A", "skuId": "3158054" },
-        //     { "颜色": "白", "尺码": "中", "型号": "B", "skuId": "3133859" },
-        //     { "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
-        //  ]
-        // 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
-        return "2019-06-20";
+        //  2019-06-20：大数组中有四个小数组，取四个小数组中的最大值重新凑成一个新数组并输出
+
+        const largestCollection = arr => arr.map(item => Math.max.apply(-Infinity, item));
+
+        return largestCollection([[1, 2, 3], [5, 7, 8], [3, 4, 6], [8, 100, 90, -1]]);
     },
     "2019-06-21" () {
         //  2019-06-21：杨辉三角
-
         return "2019-06-21";
     },
     "2019-06-22" () {
         //  2019-06-22：编写一个函数fn(Number n),将数字转为大写输出，如输入123，输出一百二十三
+        return "2019-06-22";
     },
     "2019-06-23" () {
         //  2019-06-23：如何将浮点数左边的数每三位添加逗号
+        return "2019-06-23";
     }
 }

@@ -4,7 +4,7 @@ export const solution_201904 = {
 
         console.log("==================== start 2019-04 =============================");
 
-        for (let i in solution_201904) {
+        for (let i in this) {
             
             if (i !== 'init') {
                 console.log(this[i]());
