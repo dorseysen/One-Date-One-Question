@@ -520,15 +520,72 @@ export const solution_201906 = {
             }
 
         }
-
         return new YangHuiMatrix(8);
     },
     "2019-06-22" () {
-        //  2019-06-22：编写一个函数fn(Number n),将数字转为大写输出，如输入123，输出一百二十三
-        return "2019-06-22";
+        //  2019-06-22：编写一个函数fn(Number n),将一个整数的数字转为大写输出，如输入123，输出一百二十三，数字上限：1000亿以下
+
+        const fn = number => {
+
+            let arr = ['零','一', '二', '三', '四', '五', '六', '七', '八', '九'];
+
+            let arr1 = ['个', '十', '百', '千'],
+                arr2 = ['万', '亿'];
+
+            let res = [], index = 0, index1 = 0;
+
+            while(number > 0) {
+
+                res.push( number % 10 !== 0 ? arr[number % 10] + arr1[index] : arr[number % 10]);
+
+                index = ++ index === 4 ? ( res.push(arr2 [index1]), index1 ++, 0 ) : index;
+
+                number = Math.floor( number / 10 );
+
+            }
+            return res.reverse().join('').replace(/个/g, '');
+        }
+        return fn(212133021314);
     },
     "2019-06-23" () {
+
         //  2019-06-23：如何将浮点数左边的数每三位添加逗号
-        return "2019-06-23";
+
+        //  the first solution
+        const addComma_0 = number => {
+
+            return number.toString().split('.')[0].split('').reverse().join('').replace(/(\d{3})/g, '$1,').split('').reverse().join('').replace(/^,/, '') + '.' + number.toString().split('.')[1];
+        }
+        console.log(addComma_0(2131231.32));
+
+        //  the second solution
+        class addComma {
+
+            constructor (number) {
+
+                this.numArr = number.toString().split('.');
+
+                this.init();
+            }
+            init () {
+
+                let integerPart = this.reverse( this.reverse( this.numArr[0] ).replace(/(\d{3})/g, '$1,') ).replace(/^,/, '');
+
+                this.res = this.numArr.length > 1 ? integerPart + '.' + this.numArr[1] : integerPart;
+            }
+            reverse (str) {
+
+                return str.split('').reverse().join('');
+            }
+
+        }
+        return new addComma(2131231.32);
+    },
+    "2019-06-24" () {
+
+        // 2019-06-24：检查一个字符串(str)是否以指定的字符串(target)结尾。如果是，返回true;如果不是，返回false。
+
+
+        return "2019-06-24";
     }
 }

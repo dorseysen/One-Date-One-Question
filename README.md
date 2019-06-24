@@ -128,3 +128,12 @@ npm run build
 
 > [2019-06-19：写一个累加器：比如输入1,100，则输出：1 + 2 + 3 + ... + 99 + 100 = 5050](https://github.com/dorseysen/One-Date-One-Question/issues/43)  
 
+> [2019-06-20：大数组中有四个小数组，取四个小数组中的最大值重新凑成一个新数组并输出](https://github.com/dorseysen/One-Date-One-Question/issues/44)  
+
+> [2019-06-21：杨辉三角](https://github.com/dorseysen/One-Date-One-Question/issues/45)  
+
+> [2019-06-22：编写一个函数fn(Number n),将一个整数的数字转为大写输出，如输入123，输出一百二十三，数字上限：1000亿以下](https://github.com/dorseysen/One-Date-One-Question/issues/46)  
+
+> [2019-06-23：如何将浮点数左边的数每三位添加逗号](https://github.com/dorseysen/One-Date-One-Question/issues/47)  
+
+> [2019-06-24：检查一个字符串(str)是否以指定的字符串(target)结尾。如果是，返回true;如果不是，返回false。](https://github.com/dorseysen/One-Date-One-Question/issues/48)  
