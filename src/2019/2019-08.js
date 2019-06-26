@@ -2,8 +2,6 @@ export class solution_201908 {
 
     constructor () {
 
-        // console.log(this.prototype)
-
         for(let i in this.prototype) {
             console.log(i);
         }
@@ -14,6 +12,7 @@ export class solution_201908 {
         console.log(1);
     }
     second () {
+        
         console.log(2);
     }
     

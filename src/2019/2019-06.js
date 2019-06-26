@@ -545,7 +545,7 @@ export const solution_201906 = {
             }
             return res.reverse().join('').replace(/个/g, '');
         }
-        return fn(212133021314);
+        return fn(123);
     },
     "2019-06-23" () {
 
@@ -584,8 +584,45 @@ export const solution_201906 = {
     "2019-06-24" () {
 
         // 2019-06-24：检查一个字符串(str)是否以指定的字符串(target)结尾。如果是，返回true;如果不是，返回false。
+        const endWith = ( string, target ) => new RegExp(target + '\$').test(string);
 
+        return endWith('dorsey', 'y');
+    },
+    "2019-06-25" () {
+        //  2019-06-25： 编写test(x)
+        class ModifyTest {
 
-        return "2019-06-24";
+            constructor () {
+
+                this.x = this.random(0, 999999);
+                this.res = this.run();
+            }
+            random (min, max) {
+
+                return Math.ceil(Math.random() * (max - min + 1)) - 1 + min;
+            }
+            test (x) {
+
+                let y;
+                //  coding
+                //  在这里编码，使得this.res = true;
+                for( y = 0; y <= 255; y ++) {
+
+                    if( parseInt( x + "" + y ) % 97 === 1 ) break;
+                }
+                this.y = y;
+                return this.y;
+            }
+            run () {
+
+                return parseInt(String(this.x) + String(this.test(this.x))) % 97 === 1 && 0 <= this.test(this.x) <= 255;
+            }
+        }
+        return new ModifyTest ();
+    },
+    "2019-06-26" () {
+
+        //  2019-06-26： 反转一个整数，该整数可能是负数
+
     }
 }

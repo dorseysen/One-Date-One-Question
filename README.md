@@ -137,3 +137,7 @@ npm run build
 > [2019-06-23：如何将浮点数左边的数每三位添加逗号](https://github.com/dorseysen/One-Date-One-Question/issues/47)  
 
 > [2019-06-24：检查一个字符串(str)是否以指定的字符串(target)结尾。如果是，返回true;如果不是，返回false。](https://github.com/dorseysen/One-Date-One-Question/issues/48)  
+
+> [2019-06-25： 编写test(x)](https://github.com/dorseysen/One-Date-One-Question/issues/49)  
+
+> [2019-06-26： 反转一个整数，该整数可能是负数](https://github.com/dorseysen/One-Date-One-Question/issues/50)  
