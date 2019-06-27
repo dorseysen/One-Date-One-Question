@@ -14,68 +14,18 @@ export const solution_201907 = {
         //  2019-06-18：统计从 1、2、3...一直到 n，这个过程中所有出现 0 的总数。
         //  比如说 n 的值为 11，此时从 1、2...到 11这列数只有 10 有一个 0，故而 0 的总数为 1个。注意 100 是 2个零， 1000 是 3 个零
 
-        class zeroNums {
+        const zeroNums = n => {
 
-            constructor (n) {
-                
-                this.zero = 0;
-                this.n = n;
-                this.everyBitZero = [];
-                this.res = 0;
+            let res = 0;
 
-                this.init();    
+            while( n > 0) {
+
+                res += Math.floor( n / 10 );
+                n /= 10;
             }
-            init () {
-
-                if(this.n < 100) {
-
-                    this.zero = Math.floor( this.n / 10 );
-                }
-                else{
-                    console.log(this.unit(3));
-                    let n = this.n,
-                        len = this.len(n) - 1;
-                    
-                    while( n ) {
-
-
-
-                        this.everyBitZero.push(val);
-                        this.zero += val;
-                    }
-                }
-            }
-            //  返回某个数的首位数字
-            firstNum (number) {
-                return Number( number.toString()[0] );
-            }
-            //  获取某个number的长度
-            len (number) {
-                return number.toString().length;
-            }
-            //  每一个位数单元的所有零的数目，比如10000这个数是5位，而会输出以1开头的（bit此时是4）所有五位数出现零的总数
-            unit (bit) {
-
-                let val = 0;
-                for(let i = 1; i <= bit; i ++) {
-
-                    val += this.pac( bit, i ) * ( 9 ** ( bit - i ) ) * i;
-                }
-                return val;
-            }
-            //  排列组合
-            pac (all, unit) {
-
-                let res = 1, divisor = 1;
-
-                while(unit --) {
-
-                    res *= all -- / divisor ++;
-                }
-                return res;
-            }
+            return res;
         }
-        return new zeroNums(999);
+        return zeroNums(101);
     },
     "2019-07-02" () {
         

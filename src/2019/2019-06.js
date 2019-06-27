@@ -623,6 +623,22 @@ export const solution_201906 = {
     "2019-06-26" () {
 
         //  2019-06-26： 反转一个整数，该整数可能是负数
+        const reverseInt = integer => {
 
+            return integer > 0 ? 
+
+                Number( integer.toString().split('').reverse().join('') ) : 
+                
+                Number( '-' + integer.toString().replace('-', '').split('').reverse().join('') )
+        }
+        return reverseInt(-92817231);
+    },
+    "2019-06-27" () {
+
+        //  2019-06-27： 将一串字符串中所有出现重复的字符删除，注意是字符不是字母，比如出现两个空格也要删除。
+        // 另一个注意是删除，比如输入：I Love You 输出 ILveYu
+        
+        
+        return "2019-06-27";
     }
 }
