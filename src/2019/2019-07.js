@@ -69,15 +69,19 @@ export const solution_201907 = {
         Eat supper
 
         以此类推。*/
+
+        return "2019-07-03";
     },
     "2019-07-04" () {
 
         //  BFS
+        return "2019-07-04";
     },
     "2019-07-05" () {
 
         //  DFS
-        
+
+        return "2019-07-05";  
     },
     "2019-07-06" () {
 
@@ -90,6 +94,32 @@ export const solution_201907 = {
         //     { "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
         //  ]
         // 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
+
+        return "2019-07-06";
+    },
+    "2019-07-07" () {
+
+        //  2019-07-07：移动 0，一个数组里面有若干个 0，将这些 0 移至数组的开头，并保持其他值的相对位置不变。
+
+        //  the first solution —— 出现数组拷贝与拆分
+        
+        const moveZero0 = arr => arr.filter(item => item === 0).concat(arr.filter(item => item !== 0));
+        
+        console.log( moveZero0([1, 0, 2, 7, 0, 8, 0, '12']) );
+        
+        //  the second solution
+
+        const moveZero = arr => {
+
+            let j = 0;
+
+            for(let i = 0; i < arr.length; i ++) {
+
+                
+            }
+        }
+
+        return "2019-07-07";
     }
 
 }

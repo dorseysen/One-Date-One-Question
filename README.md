@@ -1,8 +1,6 @@
 # One-Date-One-Question
 this is a space for self-improvement of mine
 
-&emsp;&emsp;本项目原是个人想通过每天一题的方式提高自己的逻辑与算法思维，这里分享给大家，一起学习一起进步。如果觉得还不错的话给个star，谢谢。
-
 #### 工程启动步骤
 
 #### 安装所需依赖
@@ -141,3 +139,5 @@ npm run build
 > [2019-06-25： 编写test(x)](https://github.com/dorseysen/One-Date-One-Question/issues/49)  
 
 > [2019-06-26： 反转一个整数，该整数可能是负数](https://github.com/dorseysen/One-Date-One-Question/issues/50)  
+
+> [2019-06-27： 将一串字符串中所有出现重复的字符删除，注意是字符不是字母，比如出现两个空格也要删除。另一个注意是删除，比如输入：I Love You 输出 ILveYu](https://github.com/dorseysen/One-Date-One-Question/issues/51)  
