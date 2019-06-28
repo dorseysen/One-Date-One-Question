@@ -629,7 +629,7 @@ export const solution_201906 = {
 
                 Number( integer.toString().split('').reverse().join('') ) : 
                 
-                Number( '-' + integer.toString().replace('-', '').split('').reverse().join('') )
+                Number( '-' + integer.toString().replace('-', '').split('').reverse().join('') );
         }
         return reverseInt(-92817231);
     },
@@ -637,13 +637,35 @@ export const solution_201906 = {
 
         //  2019-06-27： 将一串字符串中所有出现重复的字符删除，注意是字符不是字母，比如出现两个空格也要删除。
         // 另一个注意是删除，比如输入：I Love You 输出 ILveYu
-        
-        
-        return "2019-06-27";
+
+        //  the first solution
+        const removeDuplicate = str => {
+
+            let map = {};
+
+            for( let i = 0; i < str.length; i ++ ) {
+
+                'undefined' !== typeof map[str[i]] ? map[str[i]] ++ : map[str[i]] = 1;
+            }
+
+            return str.split('').filter(item => map[item] === 1).join('');
+        }
+
+        return removeDuplicate('I Love You');
     },
     "2019-06-28" () {
 
-        //  2019-06-28： 旋转数组
+        //  2019-06-28：不使用排序，求一个数组的最大差值，比如输入 [1, 2, 3, 4, 5, 6, 7] 输出 7 - 1 = 6 
 
+        return "2019-06-28";
+    },
+    "2019-06-29" () {
+        
+        return "2019-06-29";
+    },
+    "2019-06-30" () {
+
+        return "2019-06-30";
     }
+
 }
