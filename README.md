@@ -22,22 +22,18 @@ npm run build
 
 ### 本周题目
 
-> 2019-06-24：检查一个字符串(str)是否以指定的字符串(target)结尾。如果是，返回true; 如果不是，返回false。 
+> 2019-07-01： 实现函数柯里化，如 add(1)(2)(3)(4) = 10 
 
-解析：[2019-06-24](https://github.com/dorseysen/One-Date-One-Question/issues/48)  
+解析：[2019-06-24](https://github.com/dorseysen/One-Date-One-Question/issues/55)  
 
-> 2019-06-25： 编写test(x)  
+> 2019-07-02：求某一范围内的所有完数。完数的定义 —— 该数的所有因子之和等于该数，比如：28 = 1 + 2 + 4 + 7 + 14 = 28 
 
-解析：[2019-06-25](https://github.com/dorseysen/One-Date-One-Question/issues/49)  
+解析：[2019-06-25](https://github.com/dorseysen/One-Date-One-Question/issues/56)  
 
-> 2019-06-26： 反转一个整数，该整数可能是负数  
+> 2019-07-03：统计从 1、2、3...一直到 n，这个过程中所有出现 0 的总数。 
 
-解析：[2019-06-26](https://github.com/dorseysen/One-Date-One-Question/issues/50)  
+解析：[2019-06-26](https://github.com/dorseysen/One-Date-One-Question/issues/57)  
 
-> 2019-06-27： 将一串字符串中所有出现重复的字符删除，注意是字符不是字母，比如出现两个空格也要删除。
-> 另一个注意是删除，比如输入：I Love You 输出 ILveYu  
-
-解析：[2019-06-27](https://github.com/dorseysen/One-Date-One-Question/issues/51)  
 
 
 

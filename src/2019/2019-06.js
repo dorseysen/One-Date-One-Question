@@ -655,17 +655,130 @@ export const solution_201906 = {
     },
     "2019-06-28" () {
 
-        //  2019-06-28：不使用排序，求一个数组的最大差值，比如输入 [1, 2, 3, 4, 5, 6, 7] 输出 7 - 1 = 6 
+        //  2019-06-28： 不使用排序，求一个数组的最大和，比如输入 [1, 2, 3, 4, 5, 6, 7] 输出 7 + 6 = 13
 
-        return "2019-06-28";
+        //  the first solution 使用 JavaScript 提供的 API
+        const largestSum0 = arr => {
+
+            let max = Math.max.apply(-Infinity, arr);
+
+            arr.splice(arr.indexOf(max), 1);
+
+            let secondMax = Math.max.apply(-Infinity, arr);
+
+            return `${max} + ${secondMax} = ${max + secondMax}`;
+        }
+        console.log(largestSum0([1, 2, 3, 4, 5, 6, 7]));
+
+        //  the second solution 使用传统遍历取值
+
+        class largestSum {
+
+            constructor ( arr ) {
+                this.arr = arr;
+                this.getTarget();
+                this.run();
+            }
+            //  交换顺序
+            swap (i, j) {
+
+                [this.arr[i], this.arr[j]] = [this.arr[j], this.arr[i]];
+            }
+            getTarget () {
+
+                let i = 2;
+                while(i --) {
+
+                    for(let j = this.arr.length - 1; j > 0; j --) {
+
+                        if(this.arr[j] > this.arr[j - 1]) {
+
+                            this.swap(j - 1, j);
+                        }
+                    }
+                }
+            }
+            run () {
+                this.max = this.arr[0];
+                this.secondMax = this.arr[1];
+                this.res = `${this.max} + ${this.secondMax} = ${this.max + this.secondMax}`
+            }
+        }
+
+        return new largestSum([1, 38, 2, 9, 15, 5, 6, 7]);
     },
     "2019-06-29" () {
-        
-        return "2019-06-29";
+
+        // 2019-06-29：数据结构转换
+        var arr = [
+            ["广东", "广州", "天河", "猎德"],
+            ["广东", "广州", "越秀", "越秀山"],
+            ["广东", "深圳", "南山", "深圳湾"],
+            ["广东", "深圳", "福田", "中心公园"],
+            ["广西", "桂林", "七星", "七星岩"],
+            ["广西", "南宁", "江南", "江南水街"],
+            ["广东", "深圳", "南山", "科技园"],
+            ["广东", "广州", "天河", "冼村"],
+            ["广东", "佛山", "顺德", "乐从"]
+        ];
+
+        const dataStructChange = arr => {
+
+            return arr.reduce( (res, arr) => {
+
+                let _children = res;
+                arr.forEach(item => {
+                    let _value = _children.find(val => val.label === item);
+                    if(!_value) {
+                        _value = {
+                            label: item,
+                            value: item,
+                            children: []
+                        }
+                        _children.push(_value);
+                    }
+                    _children = _value.children;
+                })
+                return res;
+            }, []);
+        }
+
+        return dataStructChange(arr);
     },
     "2019-06-30" () {
+        //  2019-06-30： 计算字符串中出现的所有目标字符的下标。比如输入：'my name is dorsey'和'm'，输出：[0, 5] 
+        //  the first solution —— 利用indexOf, 可多字符
 
-        return "2019-06-30";
+        const getIndexOfString0 = (str, target) => {
+
+            let res = [], i = str.indexOf(target);
+            while( i > -1 ) {
+                res.push(i);
+                i = str.indexOf(target, i + target.length);
+            }
+            return res;
+        }
+        console.log( getIndexOfString0('my name is dorsey', 'm') );
+
+        console.log( getIndexOfString0('aa bb cc aa bbbb', 'bb') );
+
+        //  the second solution —— 利用数组循环，只能单字符
+
+        const getIndexOfString = (str, target) => {
+
+            let res = [];
+            
+            for(let i = 0; i < str.length; i ++) {
+
+                if(str[i] === target) {
+
+                    res.push(i);
+                }
+            }
+            return res;
+        }
+        
+        return getIndexOfString('my name is dorsey', 'm');
     }
 
 }

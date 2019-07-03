@@ -11,7 +11,63 @@ export const solution_201907 = {
         }
     },
     "2019-07-01" () {
-        //  2019-06-18：统计从 1、2、3...一直到 n，这个过程中所有出现 0 的总数。
+        // 2019-07-01：实现函数柯里化，如 add(1)(2)(3)(4) = 10
+        const add = num => {
+
+            let sum = num;
+        
+            let _add = function (nums) {
+                return add(sum + nums);
+            }
+        
+            _add.valueOf = function () {
+                return num;
+            }
+            _add.toString = function () {
+                return num;
+            }
+            return _add;
+        }
+        return add(1)(2)(3)(4);
+    },
+    "2019-07-02" () {
+
+        // 2019-07-02：求某一范围内的所有完数。完数的定义 —— 该数的所有因子之和等于该数，比如：28 = 1 + 2 + 4 + 7 + 14 = 28
+
+        class perfectNumber {
+
+            constructor (min, max) {
+
+                this.min = min;
+                this.max = max;
+                this.res = [];
+                this.arr = [];
+                this.init();
+            }
+            init () {
+
+                for(let i = this.min; i <= this.max; i ++) {
+
+                    this.isPerfectNumber(i) && this.res.push(i);
+                }
+            }
+            isPerfectNumber (num) {
+
+                let res = 0, arr = [];
+
+                for(let i = 1; i < num; i ++) {
+
+                    num % i === 0 && ( arr.push(i), res += i );
+                }
+
+                return res === num ? (this.arr.push(arr), true) : false;
+            }
+        }
+        return new perfectNumber(1, 2000);
+    },
+    "2019-07-03" () {
+
+        //  2019-07-03：统计从 1、2、3...一直到 n，这个过程中所有出现 0 的总数。
         //  比如说 n 的值为 11，此时从 1、2...到 11这列数只有 10 有一个 0，故而 0 的总数为 1个。注意 100 是 2个零， 1000 是 3 个零
 
         const zeroNums = n => {
@@ -26,51 +82,6 @@ export const solution_201907 = {
             return res;
         }
         return zeroNums(101);
-    },
-    "2019-07-02" () {
-        
-        /*  2019-06-19: 子数组最大和
-            比如输入：[1, 2, 3, 4, -5, 6, -7, 8],由于：1 + 2 + 3 + 4 + (-5) + 6 + (-7) + 8 = 12是最大的和。
-            故而输出：[12, [1, 2, 3, 4, -5, 6, -7, 8]]
-            子数组泛指一切由该输入数组任意连续成员所组成的数组，比如[1, 2, 3, 4]是一个子数组，[3, 4, -5]也是子数组, [-7]也是子数组
-            甚至输入数组本身也可以作为它的子数组 */
-        const maximumSum = arr => {
-
-            let median = 0, res;
-
-            for( let i = 0; i < arr.length; i ++ ) {
-
-                
-            }
-        }
-    },
-    "2019-07-03" () {
-
-        /*实现一个LazyMan，可以按照以下方式调用:
-        
-        LazyMan(“Hank”)输出:
-        Hi! This is Hank!
-
-        LazyMan(“Hank”).sleep(10).eat(“dinner”)输出
-        Hi! This is Hank!
-        等待10秒..
-        Wake up after 10
-        Eat dinner~
-
-        LazyMan(“Hank”).eat(“dinner”).eat(“supper”)输出
-        Hi This is Hank!
-        Eat dinner~
-        Eat supper~
-
-        LazyMan(“Hank”).sleepFirst(5).eat(“supper”)输出
-        等待5秒
-        Wake up after 5
-        Hi This is Hank!
-        Eat supper
-
-        以此类推。*/
-
-        return "2019-07-03";
     },
     "2019-07-04" () {
 
@@ -321,9 +332,46 @@ export const solution_201907 = {
     },
     "2019-07-15" () {
 
-        // 2019-07-15：
-        
+        /*  2019-07-19: 子数组最大和
+            比如输入：[1, 2, 3, 4, -5, 6, -7, 8],由于：1 + 2 + 3 + 4 + (-5) + 6 + (-7) + 8 = 12是最大的和。
+            故而输出：[12, [1, 2, 3, 4, -5, 6, -7, 8]]
+            子数组泛指一切由该输入数组任意连续成员所组成的数组，比如[1, 2, 3, 4]是一个子数组，[3, 4, -5]也是子数组, [-7]也是子数组
+            甚至输入数组本身也可以作为它的子数组 */
+            const maximumSum = arr => {
 
+                let median = 0, res;
+    
+                for( let i = 0; i < arr.length; i ++ ) {
+    
+                    
+                }
+            }
+
+    },
+    "2019-07-16" () {
+        /*实现一个LazyMan，可以按照以下方式调用:
+        
+        LazyMan(“Hank”)输出:
+        Hi! This is Hank!
+
+        LazyMan(“Hank”).sleep(10).eat(“dinner”)输出
+        Hi! This is Hank!
+        等待10秒..
+        Wake up after 10
+        Eat dinner~
+
+        LazyMan(“Hank”).eat(“dinner”).eat(“supper”)输出
+        Hi This is Hank!
+        Eat dinner~
+        Eat supper~
+
+        LazyMan(“Hank”).sleepFirst(5).eat(“supper”)输出
+        等待5秒
+        Wake up after 5
+        Hi This is Hank!
+        Eat supper
+
+        以此类推。*/
     }
 
 }

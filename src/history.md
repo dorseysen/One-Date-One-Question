@@ -123,3 +123,19 @@
 > [2019-06-26： 反转一个整数，该整数可能是负数](https://github.com/dorseysen/One-Date-One-Question/issues/50)  
 
 > [2019-06-27： 将一串字符串中所有出现重复的字符删除，注意是字符不是字母，比如出现两个空格也要删除。另一个注意是删除，比如输入：I Love You 输出 ILveYu](https://github.com/dorseysen/One-Date-One-Question/issues/51)  
+
+> [2019-06-28：不使用排序，求一个数组的最大差值，比如输入 [1, 2, 3, 4, 5, 6, 7] 输出 7 - 1 = 6](https://github.com/dorseysen/One-Date-One-Question/issues/52)  
+
+> [2019-06-29：数据结构转换](https://github.com/dorseysen/One-Date-One-Question/issues/53)  
+
+> [2019-06-30： 计算字符串中出现的所有目标字符的下标。比如输入：'my name is dorsey'和'm'，输出：[0, 5]](https://github.com/dorseysen/One-Date-One-Question/issues/54)  
+
+
+### 2019年7月
+[本月入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-07.js)
+
+> [2019-07-01： 实现函数柯里化，如 add(1)(2)(3)(4) = 10](https://github.com/dorseysen/One-Date-One-Question/issues/55)  
+
+> [2019-07-02：求某一范围内的所有完数。完数的定义 —— 该数的所有因子之和等于该数，比如：28 = 1 + 2 + 4 + 7 + 14 = 28](https://github.com/dorseysen/One-Date-One-Question/issues/56)  
+
+> [2019-07-03：统计从 1、2、3...一直到 n，这个过程中所有出现 0 的总数。](https://github.com/dorseysen/One-Date-One-Question/issues/56)  
