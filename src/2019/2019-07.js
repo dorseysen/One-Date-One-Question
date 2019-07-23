@@ -331,6 +331,157 @@ export const solution_201907 = {
         return intersection([1, 2, '你好', '你好'], [13, 2, '你好', '你好']);
     },
     "2019-07-15" () {
+        // 2019-07-15：json补全，有以下数据结构，要求补全当月，没有的数据补0
+        // let data = {
+        //     time: ['2019-07-15', '2019-07-19'],
+        //     value: ['30','28']
+        // }
+
+        class fillJson {
+
+            constructor (data) {
+
+                this.data = this.tranJSON(data);
+                console.log(JSON.stringify(this.data));
+            }
+            tranJSON (data) {
+
+                let _self = this;
+                let time = new Date(data.time[0]),
+                    timeStr = data.time[0].replace(/\d+$/g, '');
+                let timeArr =  Array.from({length: _self.getDaysOfMonth(time)}, (item, index) => timeStr + _self.numFormat(index + 1));
+                
+                let valueArr = timeArr.map(item => {
+                    let index = data.time.indexOf(item);
+                    return index > -1 ? data.value[index] : '0';
+                })
+                return {
+                    time: timeArr,
+                    value: valueArr
+                }
+            }
+            numFormat (num) {
+
+                return num >= 10 ? num : '0' + num;
+            }
+            getDaysOfMonth (date) {
+
+                let dateArr = [31, 28 + this.isLeapYear(date), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                
+                return dateArr[date.getMonth()];
+            }
+            isLeapYear (date) {
+                let year = date.getFullYear();
+                return (year % 4 === 0 && year % 100) || (year % 400 === 0) ? 1 : 0;
+            }
+
+        }
+        return new fillJson({
+            time: ['2019-07-15', '2019-07-19'],
+            value: ['30','28']
+        });
+    },
+    "2019-07-16" () {
+        //  2019-07-16：请写一个简单的前端节流函数
+        
+        let time = new Date().getTime();
+
+        // document.querySelector('.throttle').addEventListener('click', e => {
+
+        //     if(new Date().getTime() < time + 1000) return;
+
+        //     time = new Date().getTime();
+            
+        //     console.log(e.target);
+        // });
+        return '2019-07-16 简单节流函数';
+    },
+    "2019-07-17" () {
+        //  2019-07-17：写一个简单的洗牌算法
+        //  简单的理解就是将一个数组或集合重新打乱顺序
+        
+        const shuffle = arr => {
+
+            let i = arr.length, j;
+                
+            while(i) {
+
+                j = Math.floor(Math.random() * i --);
+
+                [arr[i], arr[j]] = [arr[j], arr[i]]
+            }
+            return arr;
+        }
+        return shuffle([1,2,3,4,5]);
+    },
+    "2019-07-18" () {
+        
+        //  2019-07-18：判断一个数是否为质数，是返回true，否返回false。
+
+        const isPrimeNumber = num => {
+
+            for(let i = 2; i <= Math.floor(num / 2); i ++) {
+
+                if(num % i === 0) return false;
+            }
+            return true;
+        }
+
+        return isPrimeNumber(17);
+    },
+    "2019-07-19" () {
+
+        //  2019-07-18：给定字符串str，检查其是否存在连续3个升序数字。
+        //  如果有，返回第一个出现的连续3个数字（或者最后一次出现的连续三个数字）
+        //  如果没有，返回不存在
+
+        const hasContinueNumber = str => {
+
+            let arr = str.match(/\d{3,}/g),
+
+                flag = [],
+                
+                res = '不存在';
+
+            arr.length && arr.forEach(item => {
+
+                for(let i = 0; i < item.length; i ++) {
+                    
+                    flag.length < 1 || (flag.length > 0 && Number(item[i]) === (flag[flag.length - 1] + 1)) ? 
+
+                    flag.push(Number(item[i])) : flag = [Number(item[i])];
+
+                    if(flag.length >= 3) {
+                        res = str.indexOf(flag.join(''));
+                        return;
+                    }
+                }
+            });
+            return res;
+        }
+
+        return hasContinueNumber('dhaio3219031snsajdap1234ssjdaopd12ad');
+
+    },
+    "2019-07-20" () {
+
+    },
+    "2019-07-21" () {
+
+    },
+    "2019-07-22" () {
+
+    },
+    "2019-07-23" () {
+        //  2019-07-32：交叉组合
+
+        // 有一个数组，如果有3个值：[3,2,6]。交叉组合后返回：3-2，3-6，2-6，3-2-6
+
+        // 有一个数组，如果有4个值：[3,2,6,9]。交叉组合后返回：3-2，3-6，3-9，2-6，2-9，6-9，3-2-6，3-2-9，2-6-9，3-2-6-9
+
+        // 5个值，6个值以此类推
+    },
+    "2019-07-24" () {
 
         /*  2019-07-19: 子数组最大和
             比如输入：[1, 2, 3, 4, -5, 6, -7, 8],由于：1 + 2 + 3 + 4 + (-5) + 6 + (-7) + 8 = 12是最大的和。
@@ -348,7 +499,7 @@ export const solution_201907 = {
             }
 
     },
-    "2019-07-16" () {
+    "2019-07-25" () {
         /*实现一个LazyMan，可以按照以下方式调用:
         
         LazyMan(“Hank”)输出:
@@ -372,6 +523,9 @@ export const solution_201907 = {
         Eat supper
 
         以此类推。*/
+    },
+    "2019-07-26" () {
+        // 2019-07-26：有100格台阶，可以跨1步可以跨2步，那么一个有多少种走法。
     }
 
 }
