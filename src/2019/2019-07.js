@@ -314,7 +314,7 @@ export const solution_201907 = {
     },
     "2019-07-11" () {
 
-        //  2019-07-10：字符串查找，查找某个字符串是否存在于另一个字符串中，若存在返回所在位置
+        //  2019-07-11：字符串查找，查找某个字符串是否存在于另一个字符串中，若存在返回所在位置
 
         //  考查indexOf
         const includeString = (parent, child) => parent.indexOf(child);
@@ -537,7 +537,7 @@ export const solution_201907 = {
 
     },
     "2019-07-20" () {
-        //  2019-07-20  输入的大数组中包含了4个小数组，分别找到每个小数组中的最大值，然后把它们串联起来，形成一个新数组。
+        //  2019-07-20：输入的大数组中包含了4个小数组，分别找到每个小数组中的最大值，然后把它们串联起来，形成一个新数组。
         //  如输入[[1,2,3], [4,5,6], [7,8], [9,10,11]]，输出[3, 6, 8, 11]
 
         const arrChange = arr => arr.map(item => Math.max.apply(-Infinity, item));
@@ -546,7 +546,7 @@ export const solution_201907 = {
     },
     "2019-07-21" () {
 
-        //  2019-07-21  实现一个摧毁(destroyer)函数，第一个参数是待摧毁的数组，其余的参数是待摧毁的值。
+        //  2019-07-21：实现一个摧毁(destroyer)函数，第一个参数是待摧毁的数组，其余的参数是待摧毁的值。
         //  如输入[1,2,3,4,5,6,7,8,9] 和 2, 5, 8， 输出 [1,3,4,6,7,9]
 
 
@@ -563,7 +563,7 @@ export const solution_201907 = {
 
     },
     "2019-07-22" () {
-        //  2019-07-22  模拟抽奖，抽奖的号码为员工号，抽过的员工不能再次出现在抽奖号码中
+        //  2019-07-22：模拟抽奖，抽奖的号码为员工号，抽过的员工不能再次出现在抽奖号码中
 
         class lottery {
 
@@ -598,7 +598,7 @@ export const solution_201907 = {
     },
     "2019-07-23" () {
         
-        //  2019-07-23  获取URL参数，并以json的格式输出。
+        //  2019-07-23：获取URL参数，并以json的格式输出。
         //  如输入：http://www.baidu.com/item.html#hello?pageNo=1&pageSize=30&keyword=hello
         //  输出：{
         //      pageNo: '1',
@@ -621,7 +621,7 @@ export const solution_201907 = {
         return getUrlParams('http://www.baidu.com/item.html#hello?pageNo=1&pageSize=30&keyword=hello');
     },
     "2019-07-24" () {
-        // 2019-07-24 实现一个lazyman函数 
+        // 2019-07-24：实现一个lazyman函数 
         //  需具备的功能细节如下：
         /**   
             实现一个LazyMan，可以按照以下方式调用:
@@ -721,14 +721,14 @@ export const solution_201907 = {
         LazyMan("dorsey").eat("breakfirst").sleep(2).eat("lunch").sleep(2).eat("dinner").sleepFirst(2);
     },
     "2019-07-25" () {
-        // 2019-07-25 返回一个数组被截断n个元素后还剩余的元素，截断从索引0开始。
+        // 2019-07-25：返回一个数组被截断n个元素后还剩余的元素，截断从索引0开始。
 
         const cutArr = (arr, num) => arr.splice(num);
 
         return cutArr([1,2,3,4,5], 3);
     },
     "2019-07-26" () {
-        //  2019-07-26  计算任意一个数（Number)各个位数之和
+        //  2019-07-26：计算任意一个数（Number)各个位数之和
 
         const sumOfDigits = num => {
             let res = 0;
@@ -742,14 +742,14 @@ export const solution_201907 = {
     },
     "2019-07-27" () {
 
-        //  2019-07-27 计算字符串中某个字符的次数
+        //  2019-07-27：计算字符串中某个字符的次数
 
         const chatNum = (string, chat) => string.match(new RegExp(chat, 'gm')).length;
 
         return chatNum('abcdefgabcdab', 'b');
     },
     "2019-07-28" () {
-        // 2019-07-28 求一个数组的最大奇数和最小偶数
+        // 2019-07-28：求一个数组的最大奇数和最小偶数
 
         //  the first solution
         const maxOddAndminEven0 = arr => {
@@ -777,7 +777,7 @@ export const solution_201907 = {
     },
     "2019-07-29" () {
 
-        //  2019-07-29  获取某一时间范围内的闰年，比如1000年到2020年的闰年，以数组的形式输出
+        //  2019-07-29：获取某一时间范围内的闰年，比如1000年到2020年的闰年，以数组的形式输出
 
         class leapYear {
 
@@ -804,7 +804,7 @@ export const solution_201907 = {
     },
     "2019-07-30" () {
 
-        //  2019-07-30  打印1000以内能被7整除的数
+        //  2019-07-30：打印1000以内能被7整除的数
 
         const exactDivision = () => {
 
@@ -814,7 +814,7 @@ export const solution_201907 = {
         return exactDivision();
     },
     "2019-07-31" () {
-        // 2019-07-31 随机数法求解π
+        // 2019-07-31：随机数法求解π
 
         //  具体的思路是，向一个有内切圆的正方形中扔点，如果落在圆内则计数，落在圆外则不计数
 

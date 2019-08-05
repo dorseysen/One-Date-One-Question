@@ -138,4 +138,73 @@
 
 > [2019-07-02：求某一范围内的所有完数。完数的定义 —— 该数的所有因子之和等于该数，比如：28 = 1 + 2 + 4 + 7 + 14 = 28](https://github.com/dorseysen/One-Date-One-Question/issues/56)  
 
-> [2019-07-03：统计从 1、2、3...一直到 n，这个过程中所有出现 0 的总数。](https://github.com/dorseysen/One-Date-One-Question/issues/56)  
+> [2019-07-03：统计从 1、2、3...一直到 n，这个过程中所有出现 0 的总数。](https://github.com/dorseysen/One-Date-One-Question/issues/57)  
+
+> [2019-07-04：数组去重，且该数组已排序，不能用Set集合，且不能新开内存，只能原引用做操作](https://github.com/dorseysen/One-Date-One-Question/issues/58)  
+
+> [2019-07-05：输入某个大于0的整数，输出从1开始的连续奇数乘积，当乘积结果刚好大于或等于输入值时，输出这条式子](https://github.com/dorseysen/One-Date-One-Question/issues/59)  
+
+> [2019-07-06：写一个函数，用于输出未来三个月的时间范围。](https://github.com/dorseysen/One-Date-One-Question/issues/60)  
+
+> [2019-07-07：移动 0，一个数组里面有若干个 0，将这些 0 移至数组的开头，并保持其他值的相对位置不变。](https://github.com/dorseysen/One-Date-One-Question/issues/61)  
+
+> [2019-07-08：leetcode 原题第一题，数组两数之和等于目标值，返回两数的位置，如输入[1, 4, 5, 8, 7] 和 8，则由于 1 + 7 = 8,输出 1 和 7的下标[0, 4]](https://github.com/dorseysen/One-Date-One-Question/issues/62)  
+
+> [2019-07-09：打印某个范围内的对称数，比如 121 1221](https://github.com/dorseysen/One-Date-One-Question/issues/63)  
+
+> [2019-07-10：旋转数组——输入一个数组和旋转值，输出旋转后的数组，数组旋转方向为向右](https://github.com/dorseysen/One-Date-One-Question/issues/64)  
+
+> [2019-07-11：字符串查找，查找某个字符串是否存在于另一个字符串中，若存在返回所在位置](https://github.com/dorseysen/One-Date-One-Question/issues/65)  
+
+> [2019-07-12：大小写取反](https://github.com/dorseysen/One-Date-One-Question/issues/66)  
+
+> [2019-07-13：生成一个长度指定的数组，成员为随机整数，并按规定的格式输出](https://github.com/dorseysen/One-Date-One-Question/issues/67)  
+
+> [2019-07-14：输出两个数组的交集](https://github.com/dorseysen/One-Date-One-Question/issues/68)  
+
+> [2019-07-15：json补全，有以下数据结构，要求补全当月，没有的数据补0](https://github.com/dorseysen/One-Date-One-Question/issues/69)  
+
+> [2019-07-16：请写一个简单的前端节流函数](https://github.com/dorseysen/One-Date-One-Question/issues/70)  
+
+> [2019-07-17：写一个简单的洗牌算法](https://github.com/dorseysen/One-Date-One-Question/issues/71)  
+
+> [2019-07-18：判断一个数是否为质数，是返回true，否返回false。](https://github.com/dorseysen/One-Date-One-Question/issues/72)  
+
+> [2019-07-19：给定字符串str，检查其是否存在连续3个升序数字。](https://github.com/dorseysen/One-Date-One-Question/issues/73)  
+
+> [2019-07-20：输入的大数组中包含了4个小数组，分别找到每个小数组中的最大值，然后把它们串联起来，形成一个新数组。](https://github.com/dorseysen/One-Date-One-Question/issues/74)  
+
+> [2019-07-21：实现一个摧毁(destroyer)函数，第一个参数是待摧毁的数组，其余的参数是待摧毁的值。](https://github.com/dorseysen/One-Date-One-Question/issues/75)  
+
+> [2019-07-22：模拟抽奖，抽奖的号码为员工号，抽过的员工不能再次出现在抽奖号码中](https://github.com/dorseysen/One-Date-One-Question/issues/76)  
+
+> [2019-07-23：获取URL参数，并以json的格式输出。](https://github.com/dorseysen/One-Date-One-Question/issues/77)  
+
+> [2019-07-24：实现一个lazyman函数](https://github.com/dorseysen/One-Date-One-Question/issues/78)  
+
+> [2019-07-25：返回一个数组被截断n个元素后还剩余的元素，截断从索引0开始。](https://github.com/dorseysen/One-Date-One-Question/issues/79)  
+
+> [2019-07-26：计算任意一个数（Number)各个位数之和](https://github.com/dorseysen/One-Date-One-Question/issues/80)  
+
+> [2019-07-27：计算字符串中某个字符的次数](https://github.com/dorseysen/One-Date-One-Question/issues/81)  
+
+> [2019-07-28：求一个数组的最大奇数和最小偶数](https://github.com/dorseysen/One-Date-One-Question/issues/82)  
+
+> [2019-07-29：获取某一时间范围内的闰年，比如1000年到2020年的闰年，以数组的形式输出](https://github.com/dorseysen/One-Date-One-Question/issues/83)  
+
+> [2019-07-30：打印1000以内能被7整除的数](https://github.com/dorseysen/One-Date-One-Question/issues/84)  
+
+> [2019-07-31：随机数法求解π近似值](https://github.com/dorseysen/One-Date-One-Question/issues/85) 
+
+### 2019年8月
+[本月入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-08.js)
+
+> [2019-08-01：球的路径](https://github.com/dorseysen/One-Date-One-Question/issues/86)  
+
+> [2019-08-02：任务管理](https://github.com/dorseysen/One-Date-One-Question/issues/87)  
+
+> [2019-08-03：找到某个字符串中指定的字符的所有index索引（下标）](https://github.com/dorseysen/One-Date-One-Question/issues/88)  
+
+> [2019-08-04：若干天后是星期几](https://github.com/dorseysen/One-Date-One-Question/issues/89)  
+
+> [2019-08-05：合并多个有序数组并去重，合并数组从小到大排序](https://github.com/dorseysen/One-Date-One-Question/issues/90)  

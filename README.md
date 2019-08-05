@@ -22,17 +22,10 @@ npm run build
 
 ### 本周题目
 
-> 2019-07-01： 实现函数柯里化，如 add(1)(2)(3)(4) = 10 
+> 2019-08-05：合并多个有序数组并去重，合并数组从小到大排序
 
-解析：[2019-07-01](https://github.com/dorseysen/One-Date-One-Question/issues/55)  
+解析：[2019-08-05](https://github.com/dorseysen/One-Date-One-Question/issues/90)  
 
-> 2019-07-02：求某一范围内的所有完数。完数的定义 —— 该数的所有因子之和等于该数，比如：28 = 1 + 2 + 4 + 7 + 14 = 28 
-
-解析：[2019-07-02](https://github.com/dorseysen/One-Date-One-Question/issues/56)  
-
-> 2019-07-03：统计从 1、2、3...一直到 n，这个过程中所有出现 0 的总数。 
-
-解析：[2019-07-03](https://github.com/dorseysen/One-Date-One-Question/issues/57)  
 
 
 
