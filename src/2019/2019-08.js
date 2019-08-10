@@ -127,16 +127,102 @@ export const solution_201908 = {
         return packedArray([[1, 2], [0, 3, 5], [-1, 4]]);
     },
     '2019-08-06' () {
+        //  2019-08-06  判断2的指数，是2的指数则返回true，不是则返回false，利用二进制的位与运算
 
-        return '2019-08-06';
+        const judgeIndex = num => (num & (num - 1)) === 0;
+
+        return judgeIndex(64);
     },
     '2019-08-07' () {
+        //  2019-08-07  找出整型数组中乘积最大的三个数
 
-        return '2019-08-07';
+        const largestMultiply = arr => {
+
+            let len = arr.length;
+
+            arr.sort((a, b) => a - b);
+           
+            return (arr[0] * arr[1] * arr[2]) > (arr[len - 1] * arr[len - 2] * arr[len -3]) ? 
+            
+            [arr[0], arr[1], arr[2]] : [arr[len-1], arr[len-2], arr[len-3]];
+        }
+
+        return largestMultiply([22, 44, -66, 37, 19, -88]);
     },
     '2019-08-08' () {
 
-        return '2019-08-08';
+        //  2019-08-08  寻找无序连续数组中的缺失数，如返回1-9中缺失的那个数
+
+        const lostNum = (arr, min, max) => ( min + max ) * (max - min + 1) / 2 - arr.reduce((acc, cur) => acc + cur);
+        
+        return lostNum([3,2,1,4,9,8,7,5], 1, 9);
+    },
+    "2019-08-09" () {
+        
+        // 2019-08-09  统计 1 的次数
+        // 忽略掉1这一个数的话，每一个位（bit）上出现1的数目为
+        //          个  十  ...   最后把1这个数补上，即 + 1
+        // 66       6 + 10 + 1
+        // 76       7 + 10 + 1
+        // 666      66 + 10 * (6 + 1) + 100 + 1
+        // 6666     666 + 10 * (66 + 1) + 100 * (6 + 1) + 1000 + 1
+        // 7777     777 + 10 * (77 + 1) + 100 * (7 + 1) + 1000 + 1
+        // 22232    2223 + 10 * (222 + 1) + 100 * (22 + 1) + 1000 * (2 + 1) + 10000 + 1
+
+        // 其实就是简单概括起来就是 (n / bit) * (n % bit + 1)
+
+        // 此时某一位bit出现小于或等于1的数需要特殊处理
+        // 如果是0:  则需把 n / bit取下限并减1。
+        // 如果是1:  则在0的基础上加上该bit所在后面的余数，比如说114，百位的数字是1，这时候，百位存在的就不会加上100，而是加上它取余100的结果再+1，即14 + 1
+        // 20002    2000 + 10 * (199 + 1) + 100 * (19 + 1) + 1000 * (1 + 1) + 10000 + 1
+        // 20202    2020 + 10 * (201 + 1) + 100 * (20 + 1) + 1000 * (1 + 1) + 10000 + 1
+        // 20212    2021 + (10 * (201 + 1) + 3) + 100 * (20 + 1) + 1000 * (1 + 1) + 10000 + 1
+
+        // 10101    1010 + 10 * (100 + 1) + (100 * (9 + 1) + 2) + 1000 * (0 + 1) + (101 + 1) + 1
+        // 10314    1031 + (10 * (102 + 1) + 4 + 1) + 100 * (10 + 1) + 1000 * (0 + 1) + (314 + 1) + 1
+        const oneNums = n => {
+
+            let multiple = 1,
+                count = 10,
+                res = 0;
+            
+            while(n >= multiple) {
+
+                let bitVal = Math.floor(n / multiple) % 10;
+
+                if(bitVal > 1) {
+                    res += (Math.floor(n / count) + 1) * multiple;
+                }
+                //  bitVal小于1时特殊处理
+                else{
+                    if(bitVal === 0){
+                        res += Math.floor(n / count) * multiple;
+                    }else{
+                        res += Math.floor(n / count) * multiple + n % multiple + 1;
+                    }
+                }
+                multiple *= 10;
+                count *= 10;
+            }
+            return res;
+        }
+        return (oneNums(100));
+    },
+    "2019-08-10" () {
+
+        //  2019-08-10  求两个数组的交集    如输入：[1,2,2,4] 和 [2,2,5], 输出： [2,2];
+        const intersection = (arr0, arr1) => {
+
+            let res = [];
+
+            arr0.forEach(item => {
+                
+                let index = arr1.indexOf(item)
+                index > -1 && (res.push(item), arr1.splice(index, 1));
+            });
+            return res;
+        }
+        return intersection([1,2,2,4], [2,2,5]);
     },
     '2019-08-31' () {
         //  2019-08-31：sku算法———多维属性状态判断

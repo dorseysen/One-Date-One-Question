@@ -97,7 +97,6 @@ export const solution_201905 = {
                     i -= (medianArr.length - 1);
 
                     medianArr = [];
-                    
                 } else {
                     medianArr.push(str[i]);
                 }
