@@ -1,3 +1,5 @@
+import { Tree } from './tree';
+
 export const solution_201908 = {
 
     init() {
@@ -223,6 +225,139 @@ export const solution_201908 = {
             return res;
         }
         return intersection([1,2,2,4], [2,2,5]);
+    },
+    "2019-08-11" () {
+        //  2019-08-11：找出一个英文句子中最长的英文单词,只需找到其中一个
+
+        const getLongestWord = sentence => {
+
+            let arrWord = sentence.replace(/[,.!?:\"]/g, '').split(' '),
+                map = {};
+
+            arrWord.map(item => map[item.length] = item);
+
+            return map[Math.max.apply(-Infinity, arrWord.map(item => item.length))];
+        }
+        return getLongestWord('my name is dorsey, I from china. dady say: "hello, how are you!"');
+    },
+    "2019-08-12" () {
+
+        //  2019-08-12：对一个只会出现英文字母且不重复的字符串，求其缺失的字母，忽略大小写
+
+        const getLostLetter = str => {
+
+            let arr = Array.from({length: 26}, (item, index) => String.fromCharCode(index + 97));
+
+            str = str.toLowerCase();
+
+            return arr.filter(item => str.indexOf(item) === -1); 
+        }
+
+        return getLostLetter('Abcdefgijklopqrstxyz');
+    },
+    "2019-08-13" () {
+        //  2019-08-13：求小于等于给定数值的质数之和。
+
+        class sumPrimes {
+
+            constructor (num) {
+
+                this.sum = 0;
+                this.num = num;
+                this.primeArr = [];
+
+                this.init();
+            }
+            init () {
+
+                for(let i = 2; i <= this.num; i ++) {
+
+                    this.isPrime(i) && ( this.primeArr.push(i), this.sum += i );
+                }
+            }
+            isPrime (num) {
+
+                for(let i = 2; i <= Math.floor(num / 2); i ++) {
+                    if(num % i === 0) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        return new sumPrimes(20);
+    },
+    "2019-08-14" () {
+        //  2019-08-14：小明家必须要过一座桥。小明过桥最快要1秒，小明的弟弟最快要3秒，
+
+        //  小明的爸爸最快要6秒，小明的妈妈最快要8秒，小明的爷爷最快要12秒。每次此桥最多可过两人，
+
+        //  而过桥的速度依过桥最慢者而定。过桥时候是黑夜，所以必须有手电筒，小明家只有一个手电筒，而且手电筒的电池只剩30秒就将耗尽。
+        
+        //  小明一家该如何过桥，请写出详细过程。
+
+        return `
+        1、小明和他弟弟一起过桥，小明回来：3 + 1 \n
+        2、小明和他爸爸一起过桥，小明回来：6 + 1 \n
+        3、小明妈妈和他爷爷一起过桥，小明的弟弟回来：12 + 3 \n
+        4、小明和他弟弟一起过桥：3 \n
+        总计耗时：3 + 1 + 6 + 1 + 12 + 3 + 3 = 29秒，小明一家安全过河`;
+    },
+    "2019-08-15" () {
+
+        //  2019-08-15：BFS
+
+        //  请写一个简单的深度优先搜索（BFS）实现过程
+        
+        class BFS {
+
+            constructor (tree, target) {
+        
+                this.tree = tree;
+        
+                this.flag = true;
+        
+                this.count = 0;
+        
+                this.init(target);
+            }
+        
+            init (target) {
+        
+                this.flag && this.breathFirst(this.tree, target);
+        
+                // console.log("this.count = " + this.count);
+            }
+        
+            breathFirst (nodeList, target) {
+        
+                let nextNodeList = [];
+        
+                for(let item of nodeList) {
+        
+                    this.count ++;
+        
+                    if(item.id === target) {
+        
+                        // console.log(item.name);
+
+                        this.name = item.name;
+        
+                        this.flag = false;
+        
+                        return;
+                    }
+        
+                    if( !!item.children && item.children.length) {
+        
+                        nextNodeList.push(...item.children);
+                    }
+                }
+                
+                this.flag && nextNodeList.length && this.breathFirst(nextNodeList, target);
+            }
+        }
+        return new BFS(Tree, '1111').name;
     },
     '2019-08-31' () {
         //  2019-08-31：sku算法———多维属性状态判断
