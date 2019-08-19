@@ -1,6 +1,9 @@
 
-// import './src/css/one-date-one-question.scss'
 
-import { container } from './src/container.js';
+import { OneDateOneQuestion } from './src/OneDateOneQuestion.js';
 
-container.init();
+import * as state from './src/state';
+
+new OneDateOneQuestion({
+    state
+});

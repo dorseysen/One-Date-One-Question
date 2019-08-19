@@ -1,4 +1,4 @@
-import { Tree } from './tree';
+// import { Tree } from './tree';
 
 export const solution_201908 = {
 
@@ -108,9 +108,7 @@ export const solution_201908 = {
 
         const futureDay = (today, future) => {
 
-            let week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-
-            return week[( future % 7 + week.indexOf(today) ) % 7];
+            return $state.Date.week[( future % 7 + $state.Date.week.indexOf(today) ) % 7];
         }
 
         return futureDay('星期一', '13');
@@ -308,6 +306,8 @@ export const solution_201908 = {
         //  2019-08-15：BFS
 
         //  请写一个简单的深度优先搜索（BFS）实现过程
+
+        console.log(" ============== BFS =================== ");
         
         class BFS {
 
@@ -357,7 +357,68 @@ export const solution_201908 = {
                 this.flag && nextNodeList.length && this.breathFirst(nextNodeList, target);
             }
         }
-        return new BFS(Tree, '1111').name;
+        return new BFS(JSON.parse(JSON.stringify($state.Tree)), '1111').name;
+    },
+    "2019-08-16" () {
+
+        //  2019-08-16：DFS
+        console.log(" ============== DFS =================== ");
+
+        class DFS {
+
+            constructor (tree, target) {
+        
+                this.tree = tree;
+        
+                this.count = 0;
+        
+                this.flag = true;
+        
+                this.init(target);
+            }
+        
+            init (target) {
+        
+                this.tree.forEach(item => {
+        
+                    // 可以尝试一下这里的目标id传入11112跟12的区别，可以很简单的看出11112的this.count更小，深度优先
+                    // this.flag && this.deepFirst(item, "11112");
+        
+                    this.flag && this.deepFirst(item, target);
+                });
+        
+                // console.log("this.count = " + this.count);
+            }
+        
+            deepFirst (node, target) {
+        
+                this.count ++;
+        
+                if(node.id === target) {
+        
+                    // console.log(node.name);
+                    this.name = node.name;
+        
+                    this.flag = false;
+        
+                    return;
+                }
+        
+                if( !!node.children && !!node.children.length ) {
+        
+                    node.children.forEach(item => this.flag && this.deepFirst(item, target));
+                }
+            }
+        }
+        return new DFS(JSON.parse(JSON.stringify($state.Tree)), '1111').name;
+    },
+    '2019-08-17' () {
+
+        // 2019-08-17：计算出某年某月某日是星期几
+
+        const getDay = date => $state.Date.week[new Date(date).getDay()];
+
+        return getDay('2019-08-17');
     },
     '2019-08-31' () {
         //  2019-08-31：sku算法———多维属性状态判断
@@ -369,8 +430,6 @@ export const solution_201908 = {
         //     { "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
         //  ]
         // 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
-        console.log(2);
+        return "2019-08-31";
     }
-        //  DFS
-        //  BFS
 }
