@@ -305,7 +305,7 @@ export const solution_201908 = {
 
         //  2019-08-15：BFS
 
-        //  请写一个简单的深度优先搜索（BFS）实现过程
+        //  请写一个简单的广度优先搜索（BFS）实现过程
 
         console.log(" ============== BFS =================== ");
         
@@ -362,6 +362,9 @@ export const solution_201908 = {
     "2019-08-16" () {
 
         //  2019-08-16：DFS
+
+        //  请写一个简单的深度优先搜索（DFS）实现过程（与上题BFS一样实现对同一Tree的搜索）
+        
         console.log(" ============== DFS =================== ");
 
         class DFS {
@@ -419,6 +422,151 @@ export const solution_201908 = {
         const getDay = date => $state.Date.week[new Date(date).getDay()];
 
         return getDay('2019-08-17');
+    },
+    "2019-08-18" () {
+
+        // 2019-08-18：操作单词
+        // 给出两个单词word1和word2，计算出将word1 转换为word2的最少操作次数。
+
+        // 你总共三种操作方法：
+        // 1、插入一个字符
+        // 2、删除一个字符
+        // 3、替换一个字符
+
+        class operaWords {
+
+            constructor (fw, sw) {
+
+                this.opera = [];
+
+                this.count = 0;
+
+                this.fw = fw;
+
+                this.ew = fw;
+
+                this.sw = sw;
+
+                for(let i = 0; i < this.ew.length; i ++) {
+
+                    if( this.sw[i] && this.ew[i] !== this.sw[i] ) {
+
+                        if(this.ew[i] === this.sw[i + 1]) {
+
+                            this.ew = this.insert(this.ew, i, this.sw[i]);
+                            continue;
+                        }
+                        if(this.ew[i + 1] === this.sw[i]){
+
+                            this.ew = this.remove(this.ew, i, this.sw[i]);
+                            continue;
+                        }
+
+                        this.ew = this.replace(this.ew, i, this.sw[i])
+                    }
+                }
+                let flag = this.ew.length >= this.sw.length ? true : false;
+
+                if(flag) {
+
+                    for(let j = this.sw.length; j < this.ew.length; j ++) {
+
+                        this.ew = this.remove(this.ew, j, this.sw[j]);
+                    }
+                }else{
+
+                    for(let j = this.ew.length; j < this.sw.length; j ++) {
+
+                        this.ew = this.insert(this.ew, j, this.sw[j]);
+                    }
+                }
+            }
+            //  插入字符
+            insert (str, pos, chat) {
+                
+                this.opera.push(str + ': 插入字符：' + chat + ',插入位置：' + pos);
+
+                this.count ++;
+
+                return str.substr(0, pos) + chat + str.substr(pos);
+            }
+            //  替换字符
+            replace (str, pos, chat) {
+
+                this.opera.push(str + ': 替换字符：' + chat + ',替换位置：' + pos);
+
+                this.count ++;
+
+                return str.substr(0, pos) + chat + str.substr(pos + 1);
+            }
+            //  移除字符
+            remove (str, pos) {
+
+                this.opera.push(str + ': 移除字符：' + str[pos]);
+
+                this.count ++;
+
+                return str.substr(0, pos) + str.substr(pos + 1);
+            }
+        }
+        return new operaWords('abdvcghhhh', 'hijklmn');
+    },
+    "2019-08-19" () {
+        // 2019-08-19：排列组合
+        // 给定一个数组，如：[['1','2'], ['1','2','3'], ['1','3'], ['4','5']];
+        // 要求输出：[ '1,1,1,4','1,1,1,5','1,1,3,4','1,1,3,5','1,2,1,4','1,2,1,5','1,2,3,4','1,2,3,5',
+        // '1,3,1,4','1,3,1,5','1,3,3,4','1,3,3,5','2,1,1,4','2,1,1,5','2,1,3,4','2,1,3,5','2,2,1,4',
+        // '2,2,1,5','2,2,3,4','2,2,3,5','2,3,1,4','2,3,1,5','2,3,3,4','2,3,3,5' ]
+        // 即将数组中各个子数组当做一个小集合，在这些小集合中分别取出一个字符并用逗号隔开组成一个新的字符串，
+        // 输出所有可能出现的字符串，字符串中字符顺序需与原集合在数组中的顺序一致
+
+        const combination = arr => {
+
+            return arr.reduce((acc, cur) => {
+
+                let temp = [];
+                acc.forEach(em => {
+
+                    cur.forEach(m => {
+
+                        temp.push(em + ',' + m);
+                    })
+                })
+
+                return temp;
+            }, arr.shift());
+        }
+        return combination([['1','2'], ['1','2','3'], ['1','3'], ['4','5']]);
+    },
+    "2019-08-20" () {
+        // 2019-08-20：多维数组降维
+        // 类似于Array.prototype.flat
+
+        const _flat = (arr, dim) => {
+
+            let temp = arr;
+
+            while(dim--) {
+
+                let arr0 = [];
+                temp.forEach(item => {
+
+                    if(Object.prototype.toString.call(item) === '[object Array]') {
+
+                        arr0.push(...item);
+
+                    }else{
+                        arr0.push(item);
+                    }
+                });
+                temp = arr0;
+            }
+            return temp;
+        }
+        return _flat([1,2,['1','2',[12, 34, ['12', '34']]]], 2);
+    },
+    "2019-08-21" () {
+        // 2019-08-21：动态规划 —— 找零钱
     },
     '2019-08-31' () {
         //  2019-08-31：sku算法———多维属性状态判断
