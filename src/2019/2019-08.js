@@ -566,18 +566,281 @@ export const solution_201908 = {
         return _flat([1,2,['1','2',[12, 34, ['12', '34']]]], 2);
     },
     "2019-08-21" () {
-        // 2019-08-21：动态规划 —— 找零钱
+        // 2019-08-21：手动实现一个jsonp
+        
+        // https://www.sina.com.cn/api/hotword.json
+
+        // fetch('https://www.sina.com.cn/api/hotword.json', function (resp) {
+
+        //     console.log(resp);
+        // });
+
+        class dorseyJsonp {
+
+            constructor (url, callback) {
+
+                let id = this.createRandomId();
+
+                window[id] = function (result) {
+
+                    if(callback){
+                        callback(result);
+                    }
+
+                    let scriptID = document.querySelector('#' + id);
+                    scriptID.parentNode.removeChild(scriptID);
+                    window[scriptID] = null;
+                }
+                let script = document.createElement('script');
+
+                script.src = url;
+                script.id = id;
+                script.type = 'text/javascript';
+
+                document.body.appendChild(script);
+            }
+            createRandomId () {
+
+                return 'query' + Math.floor(Math.random() * 10000).toString(32) + new Date().getTime().toString(32);
+            }
+        }
+        // new dorseyJsonp('http://172.25.20.21:9080/efacecloud/rest/v6/device/favorite/getData', function (resp) {
+
+        //     console.log(resp);
+        // });
+    },
+    "2019-08-22" () {
+
+        //  2019-08-22：多种方式转换一维对象为数组，对象的key为1,2,3,4
+
+        //  the first solution
+        const objToArr0 = obj => {
+
+            let res = [];
+
+            for(let i in obj) {
+
+                res.push(obj[i]);
+            }
+            return res;
+        }
+        //  the second solution
+        const objToArr1 = obj => Object.values(obj);
+        
+        //  the third solution
+        const objToArr2 = obj => {
+            obj.length = Object.keys(obj).length;
+            return Array.from(obj);
+        }
+
+        //  the fourth solution
+        const objToArr3 = obj => {
+            obj.length = Object.keys(obj).length - 1;
+            return [].slice.call(obj);
+        }
+
+        const testObj = {
+            0: 'go',
+            1: 'dorsey',
+            2: 'sen',
+            3: 'hello'
+        }
+
+        console.log(objToArr0(testObj));
+        console.log(objToArr1(testObj));
+        console.log(objToArr2(testObj));
+        return objToArr3(testObj);
+
+    },
+    "2019-08-23" () {
+        // 2019-08-23：红绿灯
+        
+        // 绿灯亮3秒，然后红灯亮3秒，然后黄灯再亮3秒。灯亮过程可以用console表示。
+
+        class led {
+
+            constructor () {
+
+                this.colorList = ['红', '绿', '蓝'];
+                this.index = 0;
+                this.light(this.index);
+            }
+            light (color) {
+                console.log(color);
+                this.delay();
+            }
+            delay () {
+
+                let _self = this;
+                this.index ++;
+                this.index = this.index % 3;
+                setTimeout(() => { _self.light(_self.colorList[_self.index]) }, 3000);
+            }
+        }
+        return "2019-08-23红绿灯问题";
+    },
+    "2019-08-24" () {
+
+        //  2019-08-24：将一个非数字的数组进行排序，如：
+
+        // 输入：['红', '橙', '红', '黄', '黄', '绿', '青', '蓝', '紫', '绿', '青', '蓝', '紫', '橙', '红']
+
+        // 输出：["红", "红", "红", "橙", "橙", "黄", "黄", "绿", "绿", "青", "青", "蓝", "蓝", "紫", "紫"]
+
+        const sortArr = arr => {
+
+            const map = {
+                '红': 0,
+                '橙': 1,
+                '黄': 2,
+                '绿': 3,
+                '青': 4,
+                '蓝': 5,
+                '紫': 6
+            }
+            arr.sort((a, b) => map[a] - map[b]);
+            return arr;
+        }
+
+        return sortArr(['红', '橙', '红', '黄', '黄', '绿', '青', '蓝', '紫', '绿', '青', '蓝', '紫', '橙', '红']);
+    },
+    "2019-08-25" () {
+        //  2019-08-25：负载均衡问题，左侧是源源不断的负载与请求，右侧则是永不停息的消费与服务。
+        //  假设某一时刻均衡总线收到的消息包如下:
+        //  [{data: 'data1'}, {data: 'data2'}, ...]，此时又有若干个消费者协助处理这些请求包。比如3个消费者。如何分配？
+
+        const balance = (message, consumers) => {
+
+            let len = Math.floor(message.length / consumers),
+                res = [];
+
+            for(let i = 0, j = message.length % consumers; i < consumers; i ++) {
+
+                i !== consumers - 1 ? res.push(message.splice(0, j <= 0 ? len : len + 1)) : res.push(message);
+                j --;
+            }
+            return res;
+        }
+        return balance([{data: 'data1'}, {data: 'data2'}, {data: 'data3'}, {data: 'data4'}, {data: 'data5'}, {data: 'data6'}, {data: 'data7'}, {data: 'data8'}], 3);
+    },
+    "2019-08-26" () {
+        
+        // 2019-08-26：数组元素求平方。
+        // 难度 ★
+        // 输入一个数组，数组元素均为Number类型，输出数组所有元素均做平方变换之后的数组
+        // 如输入[1,2,3,4] => [1,4,9,16];
+
+        const squareNums = arr => arr.map(item => item ** 2);
+
+        return squareNums([1,2,3,4,5,6,7]);
+    },
+    "2019-08-27" () {
+        // 2019-08-27：复合数组排序
+        // 难度 ★★
+        // 一个数组 par 中存放有多个人员的信息，每个人员的信息由年龄 age 和姓名 name 组成，如{age: 2, name: 'xx'}。
+        // 请写一段 JS 程序，对这个数组按年龄从小到大进行排序。
+
+        // the first solution
+        const objArrSort0 = arr => {
+
+            let map = {};
+            let arrSort = arr.map((item, index) => {
+
+                'undefined' === typeof map[item.age] ? map[item.age] = [item] : map[item.age].push(item);
+                return item.age;
+            });
+
+            arrSort = Array.from(new Set(arrSort));
+            arrSort.sort((a, b) => a - b);
+
+            let res = arrSort.map(item => map[item]);
+
+            return res.flat(1);
+        }
+        console.log(objArrSort0([
+            {age: 18,name: 'dorsey'},
+            {age: 21,name: 'sen'},
+            {age: 11,name: 'hello'},
+            {age: 18,name: 'ming'}
+        ]));
+
+        //  the second solution
+        const objArrSort = arr => arr.sort((a, b) => a.age > b.age ? 1 : -1);
+
+        return objArrSort([
+            {age: 18,name: 'dorsey'},
+            {age: 21,name: 'sen'},
+            {age: 11,name: 'hello'},
+            {age: 18,name: 'ming'}
+        ]);
+    },
+    "2019-08-28" () {
+
+        // 2019-08-28：正则应用 - 字符串变换
+        // 难度 ★★
+        // 有字符串 str = 'abc345efgabcab'，请写出 3 条 JS 语句分别实现如下 3 个功能：
+        // removeABC：去掉字符串中的a、b、c 字符，形成结果：'345efg'
+        // putInBrackets：将字符串中的数字用中括号括起来，形成结果：'abc[345]efgabcab'
+        // doubleNum：将字符串中的每个数字的值分别乘以 2，形成结果：'abc6810efgabcab'
+        
+        class strTran {
+            constructor (str) {
+
+                this.str = str;
+                this.firstStr = this.removeABC();   
+                this.secondStr = this.putInBrackets();
+                this.thirdStr = this.doubleNum();
+            }
+            removeABC () {
+
+                return this.str.replace(/[abc]/g, '');
+            }
+            putInBrackets() {
+                return this.str.replace(/(\d+)/g, '[$1]');
+            }
+            doubleNum () {
+                return this.str.replace(/(\d+)/g, $1 => $1.split('').map(item => Number(item) * 2).join(''));
+            }
+        }
+        return new strTran('abc345efgabc123ab');
+    },
+    "2019-08-29" () {
+
+        //  2019-08-29：正则应用 - 提取url的协议、IP以及端口，并输出成一个对象
+        //  难度 ★★
+        const extract = url => {
+
+            let urlArr = url.match(/(?<=^)\w+(?=:)|(\d+\.\d+\.\d+\.\d+)|(?<=:)\d+(?=\/)/g);
+
+            return {
+                protocol: urlArr[0],
+                ip: urlArr[1],
+                port: urlArr[2]
+            }
+        }
+        return extract('http://127.0.0.1:8080/index.html');
+    },
+    "2019-08-30" () {
+        // 2019-08-30：奇偶数分离
+        // 难度：★
+        // 将数组中的所有数字按偶数一组，奇数一组分。如：[1,2,3,4,5,6,7] => [[1,3,5,7], [2,4,6]]
+        const oddEvenSeparate = arr => {
+
+            let res = [];
+
+            res.push(arr.filter(item => item % 2));
+            res.push(arr.filter(item => !(item % 2)));
+
+            return res;
+        }
+
+        return oddEvenSeparate([1,2,3,4,5,6,7]);
     },
     '2019-08-31' () {
-        //  2019-08-31：sku算法———多维属性状态判断
-        //  算法简化：假设只有3种状态：1、颜色：红蓝灰。2、尺码、大中小。型号、ABC。
-        //  此时库存只有以下数据源：
-        // [
-        //     { "颜色": "红", "尺码": "大", "型号": "A", "skuId": "3158054" },
-        //     { "颜色": "白", "尺码": "中", "型号": "B", "skuId": "3133859" },
-        //     { "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
-        //  ]
-        // 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
-        return "2019-08-31";
+        //  2019-08-31：实现trim方法
+        //  难度：★☆
+        const trim = str => str.replace(/(^\s+)|(\s+$)/g, "");
+
+        return trim('   hello, my name is dorsey!  ');
     }
 }
