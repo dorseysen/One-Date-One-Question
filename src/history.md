@@ -218,3 +218,45 @@
 > [2019-08-09：统计 1 的次数](https://github.com/dorseysen/One-Date-One-Question/issues/94)  
 
 > [2019-08-10：求两个数组的交集](https://github.com/dorseysen/One-Date-One-Question/issues/95)  
+
+> [2019-08-11：找出一个英文句子中最长的英文单词,只需找到其中一个](https://github.com/dorseysen/One-Date-One-Question/issues/96)  
+
+> [2019-08-12：对一个只会出现英文字母且不重复的字符串，求其缺失的字母，忽略大小写](https://github.com/dorseysen/One-Date-One-Question/issues/97)  
+
+> [2019-08-13：求小于等于给定数值的质数之和。](https://github.com/dorseysen/One-Date-One-Question/issues/98)  
+
+> [2019-08-14：非编程题——小明一家过桥](https://github.com/dorseysen/One-Date-One-Question/issues/99)  
+
+> [2019-08-15：BFS](https://github.com/dorseysen/One-Date-One-Question/issues/100)  
+
+> [2019-08-16：DFS](https://github.com/dorseysen/One-Date-One-Question/issues/101)   
+
+> [2019-08-17：计算出某年某月某日是星期几](https://github.com/dorseysen/One-Date-One-Question/issues/102)  
+
+> [2019-08-18：操作单词](https://github.com/dorseysen/One-Date-One-Question/issues/103)  
+
+> [2019-08-19：排列组合](https://github.com/dorseysen/One-Date-One-Question/issues/104)  
+
+> [2019-08-20：多维数组降维](https://github.com/dorseysen/One-Date-One-Question/issues/105)  
+
+> [2019-08-21：手动实现一个jsonp](https://github.com/dorseysen/One-Date-One-Question/issues/106)  
+
+> [2019-08-22：多种方式转换一维对象为数组，对象的key为1,2,3,4](https://github.com/dorseysen/One-Date-One-Question/issues/107)  
+
+> [2019-08-23：红绿灯](https://github.com/dorseysen/One-Date-One-Question/issues/108)  
+
+> [2019-08-24：将一个非数字的数组进行排序](https://github.com/dorseysen/One-Date-One-Question/issues/109)  
+
+> [2019-08-25：负载均衡问题](https://github.com/dorseysen/One-Date-One-Question/issues/110)  
+
+> [2019-08-26：数组元素求平方。难度 ★](https://github.com/dorseysen/One-Date-One-Question/issues/111)   
+
+> [2019-08-27：复合数组排序。难度 ★★](https://github.com/dorseysen/One-Date-One-Question/issues/112)  
+
+> [2019-08-28：正则应用 - 字符串变换。难度 ★★](https://github.com/dorseysen/One-Date-One-Question/issues/113)  
+
+> [2019-08-29：正则应用 - 提取url的协议、IP以及端口，并输出成一个对象。难度 ★★](https://github.com/dorseysen/One-Date-One-Question/issues/114)  
+
+> [2019-08-30：奇偶数分离。难度：★](https://github.com/dorseysen/One-Date-One-Question/issues/115)  
+
+> [2019-08-31：实现trim方法。难度：★☆](https://github.com/dorseysen/One-Date-One-Question/issues/116)  
