@@ -64,8 +64,12 @@ module.exports = {
         // disableHostCheck: true, //  兼容IE不做客户端是否为白名单的安全性检查，开发环境不需要，生产环境需要去掉
     },
     plugins: [
+        // new HtmlWebpackPlugin({
+        //     title: 'One date One Question',
+        //     template: './index.html'
+        // }),
         new HtmlWebpackPlugin({
-            title: 'One date One Question',
+            title: '测试',
             template: './index.html'
         }),
         SassExtract

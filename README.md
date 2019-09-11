@@ -20,8 +20,5 @@ npm run build
 
 > [历史入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/history.md)  
 
-
-
-
-
+现对新加的每道题目加入难度等级。其中：★为完整一颗星，代表难度等级2，☆为半颗星，代表难度1
 
