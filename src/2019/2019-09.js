@@ -250,11 +250,95 @@ export const solution_201909 = {
 
 		return getTargetStr('<123><>789<456><<1024>');
 	},
+	"2019-09-10" () {
+		//	2019-09-10：9月10日是教师节，也是马云告别阿里的日子。
+		//  请写一个函数，返回距当下时间最近的节日，注意是将来。
+		//	难度 ★★☆
+
+		//	比如今天是教师节9月10日，则输出'教师节'
+		//	假如是7月2号，则输出将来最近的节日，即'建军节'
+		//	日历字典如下：
+
+		
+		var festival = {
+            "0101" : "元旦节",
+            "0214" : "情人节",
+            "0305" : "学雷锋纪念日",
+            "0308" : "妇女节",
+            "0312" : "植树节",
+            "0401" : "愚人节",
+            "0501" : "劳动节",
+            "0504" : "青年节",
+            "0601" : "国际儿童节",
+            "0701" : "中国GD诞辰",
+            "0801" : "建军节",
+            "0910" : "教师节",
+            "1001" : "国庆节",
+            "1224" : "平安夜",
+            "1225" : "圣诞节"
+		};
+		
+		class getRecentFestival {
+
+			constructor (festival) {
+
+				this.festival = festival;
+
+				this.festivalMap = Object.keys(this.festival);
+
+				this.festivalMap.sort();
+
+				this.init();
+			}
+			init () {
+
+				let date = this.format(new Date());
+
+				let arr = this.festivalMap.filter(item => item >= date);
+
+				this.res = arr.length > 0 ? this.festival[arr[0]] : this.festival[this.festivalMap[0]];
+
+			}
+
+			format (date) {
+				
+				return this.fill(date.getMonth() + 1) + this.fill(date.getDate());
+			}
+			fill (date) {
+
+				return date >= 10 ? date : '0' + date;
+			}
+		}
+
+		return new getRecentFestival(festival);
+	},
+	"2019-09-11" () {
+
+		// 2019-09-11：正则应用 - 必须包含字母和数字，且位数要在8~20位之间，是返回true，不是返回false
+		// 难度 ★
+
+		const regVerify = str => /^(?![a-zA-Z]+$)(?!\d+$)[a-zA-Z\d]{8,20}$/g.test(str);
+
+		return regVerify('11a1111111');
+	},
+	"2019-09-12" () {
+
+		// 2019-09-12：随机数应用 - 生成一串唯一且不重复的UUID
+		// 难度 ★
+		const createUUID = () => new Date().getTime().toString(32) + Math.floor(Math.random() * 999999).toString(32);
+
+		return createUUID();
+	},
+	"2019-09-13" () {
+		// 2019-09-13：中秋节日题目自由发挥 - 今天是中秋节，请写一段代码表达你的情感，也许是游子的思乡，也许是团圆的快乐，请自由发挥
+		// 难度 ※
+
+	},
 	"2019-09-28" () {
 		//  2019-08-31：sku算法———多维属性状态判断
         //  算法简化：假设只有3种状态：1、颜色：红蓝灰。2、尺码、大中小。型号、ABC。
         //  此时库存只有以下数据源：
-        // [
+        //  [
         //     { "颜色": "红", "尺码": "大", "型号": "A", "skuId": "3158054" },
         //     { "颜色": "白", "尺码": "中", "型号": "B", "skuId": "3133859" },
         //     { "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
@@ -264,6 +348,7 @@ export const solution_201909 = {
 		return "2019-09-28";
 	},
 	"2019-09-29" () {
+
 		// 2019-09-29：动态规划 —— 找零钱
 
 		return "2019-09-29"
