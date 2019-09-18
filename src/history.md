@@ -292,10 +292,10 @@
 
 > [2019-09-14：字符串最短距离 - 初阶。难度 ★](https://github.com/dorseysen/One-Date-One-Question/issues/130)  
 
-> [2019-09-15：字符串最短距离 - 中阶。难度 ★★★](https://github.com/dorseysen/One-Date-One-Question/issues/117)  
+> [2019-09-15：字符串最短距离 - 中阶。难度 ★★★](https://github.com/dorseysen/One-Date-One-Question/issues/131)  
 
-> [2019-09-16：日期函数应用 - 当下时间日期格式化。难度 ★☆](https://github.com/dorseysen/One-Date-One-Question/issues/118)  
+> [2019-09-16：日期函数应用 - 当下时间日期格式化。难度 ★☆](https://github.com/dorseysen/One-Date-One-Question/issues/132)  
 
-> [2019-09-17：日期函数应用 - 输入n，输出n个月后的时间。难度 ★☆](https://github.com/dorseysen/One-Date-One-Question/issues/119)  
+> [2019-09-17：日期函数应用 - 输入n，输出n个月后的时间。难度 ★☆](https://github.com/dorseysen/One-Date-One-Question/issues/133)  
 
-> [2019-09-18：日期函数应用 - 日期综合应用。难度 ★★★☆](https://github.com/dorseysen/One-Date-One-Question/issues/120)  
+> [2019-09-18：日期函数应用 - 日期综合应用。难度 ★★★☆](https://github.com/dorseysen/One-Date-One-Question/issues/134)  
