@@ -260,3 +260,42 @@
 > [2019-08-30：奇偶数分离。难度：★](https://github.com/dorseysen/One-Date-One-Question/issues/115)  
 
 > [2019-08-31：实现trim方法。难度：★☆](https://github.com/dorseysen/One-Date-One-Question/issues/116)  
+
+### 2019年9月
+[本月入口](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/2019/2019-09.js)
+
+> [2019-09-01：输入一个正整数，输出从1到这个数的所有整数，当整数中存在刚好能被7整除的数时，该该整数替换成 sen。难度 ★☆](https://github.com/dorseysen/One-Date-One-Question/issues/117)  
+
+> [2019-09-02：给定一个数字组成的数组, 计算这些数的平均值, 中位数和Mode(出现次数最多的数字)。难度 ★★☆](https://github.com/dorseysen/One-Date-One-Question/issues/118)  
+
+> [2019-09-03：输入一段时间内的股票波动曲线，输出利益最大化时的买入与卖出价格。难度 ★☆](https://github.com/dorseysen/One-Date-One-Question/issues/119)  
+
+> [2019-09-04：队列合并。难度 ★★](https://github.com/dorseysen/One-Date-One-Question/issues/120)  
+
+> [2019-09-05：使用JavaScript实现AOP - 先做简单的切入。难度 ★★★☆](https://github.com/dorseysen/One-Date-One-Question/issues/121)  
+
+> [2019-09-06：使用JavaScript实现AOP - 真正能用于业务上而非demo。难度 ★★★★☆](https://github.com/dorseysen/One-Date-One-Question/issues/122)  
+
+> [2019-09-07：给一个字符串用空格分隔。难度 ☆](https://github.com/dorseysen/One-Date-One-Question/issues/123)  
+
+> [2019-09-08：有一个数组是这样的：['abc', 'bc', 'adef', 'opq', 'a', 'acd']，给其做排序。难度 ☆](https://github.com/dorseysen/One-Date-One-Question/issues/124)  
+
+> [2019-09-09：正则应用 - 找出一串字符串中所有<>中间的字符片段，字符片段既不能为空，也不能包含<>。难度 ★★](https://github.com/dorseysen/One-Date-One-Question/issues/125)  
+
+> [2019-09-10：9月10日是教师节，也是马云告别阿里的日子，请写一个函数，返回距当下时间最近的节日，注意是将来。难度 ★★☆](https://github.com/dorseysen/One-Date-One-Question/issues/126)   
+
+> [2019-09-11：正则应用 - 必须包含字母和数字，且位数要在8~20位之间，是返回true，不是返回false。难度 ★](https://github.com/dorseysen/One-Date-One-Question/issues/127)  
+
+> [2019-09-12：随机数应用 - 生成一串唯一且不重复的UUID。难度 ★](https://github.com/dorseysen/One-Date-One-Question/issues/128)  
+
+> [2019-09-13：中秋节日题目自由发挥 - 今天是中秋节，请写一段代码表达你的情感，也许是游子的思乡，也许是团圆的快乐，请自由发挥。难度 ※](https://github.com/dorseysen/One-Date-One-Question/issues/129)  
+
+> [2019-09-14：字符串最短距离 - 初阶。难度 ★](https://github.com/dorseysen/One-Date-One-Question/issues/130)  
+
+> [2019-09-15：字符串最短距离 - 中阶。难度 ★★★](https://github.com/dorseysen/One-Date-One-Question/issues/117)  
+
+> [2019-09-16：日期函数应用 - 当下时间日期格式化。难度 ★☆](https://github.com/dorseysen/One-Date-One-Question/issues/118)  
+
+> [2019-09-17：日期函数应用 - 输入n，输出n个月后的时间。难度 ★☆](https://github.com/dorseysen/One-Date-One-Question/issues/119)  
+
+> [2019-09-18：日期函数应用 - 日期综合应用。难度 ★★★☆](https://github.com/dorseysen/One-Date-One-Question/issues/120)  

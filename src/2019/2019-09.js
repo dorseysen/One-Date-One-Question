@@ -330,12 +330,329 @@ export const solution_201909 = {
 		return createUUID();
 	},
 	"2019-09-13" () {
-		// 2019-09-13：中秋节日题目自由发挥 - 今天是中秋节，请写一段代码表达你的情感，也许是游子的思乡，也许是团圆的快乐，请自由发挥
+		// 2019-09-13：中秋节日题目自由发挥 - 今天是中秋节。
+		// 请写一段代码表达你的情感，也许是游子的思乡，也许是团圆的快乐，请自由发挥
 		// 难度 ※
+		const minMoon = () => {
 
+			return `
+				明月几时有
+				把酒问青天
+				不知天上宫阙
+				今夕是何年
+				
+				我欲乘风归去
+				又恐琼楼玉宇
+				高处不胜寒
+				起舞弄清影
+				何似在人间
+
+				转朱阁、低绮户、照无眠
+				不应有恨
+				何事长向别时圆
+				人有悲欢离合
+				月有阴晴圆缺
+				此事古难全
+				但愿人长久
+				千里共婵娟`
+		}
+
+		return minMoon();
+	},
+	"2019-09-14" () {
+
+		// 2019-09-14：字符串最短距离 - 初阶
+		// 难度 ★
+		// 给定一个只包含小写字母a-z的字符串以及一个字符（字符只会出现a-z），输出字符串中各个字符与指定字符串之间的距离。
+		// 距离的定义是 a与b相差1位，则为1，而a与e中间还有c,d，再加上e本身，则相差了3，所以为3
+		// 如输出'abcdefg' 和 'f' 则输出[5,4,3,2,1,0,1];
+
+		const shortestDistance = (str, char) => str.split("").map(item => Math.abs(item.charCodeAt() - char.charCodeAt()));
+
+		return shortestDistance('abcdefg', 'f');
+	},
+	"2019-09-15" () {
+
+		// 2019-09-15：字符串最短距离 - 中阶
+		// 难度 ★★★
+
+		// 给定字符串与一个字符串中存在的字符(这个字符已知是一定存在于字符串中的)，
+		// 输出字符串中每一个字符与该字符的距离
+		// 如输入'dasoidj12' 和 'i'，则输出[4,3,2,1,0,1,2,3,4];
+		// 值得注意的是字符串可能有多个，比如输入：'dasoidj12' 和 'd'，
+		// 则输出[0,1,2,2,1,0,1,2,3]
+
+		class minDistance {
+
+			constructor(str, char) {
+
+				this.str = str;
+				this.char = char;
+				this.res = [];
+
+				this.init();
+			}
+			init () {
+
+				let arr = this.getIndex();
+
+				if(arr.length > 1) {
+
+					for(let i = 0, j = 0, k = 1; i < this.str.length; i ++) {
+
+						if( Math.abs(i - arr[j]) > Math.abs(i - arr[k]) ) {
+
+							k + 1 <= arr.length && (j = k, k += 1);
+						}
+
+						this.res.push(Math.abs(i - arr[j]));
+					}
+
+				}else{
+					this.res = this.str.split('').map((item, index) => Math.abs(index - arr[0]));
+				}
+			}
+			getIndex () {
+
+				let arr = [],
+					_self = this;
+
+				_self.str.split('').map((item, index) => {
+					if(item === _self.char) {
+						arr.push(index);
+					}
+				});
+				return arr;
+			}
+
+		}
+		return new minDistance('dasoidj12ddasbdkaioldhaoi', 'd');
+	},
+	"2019-09-16" () {
+		// 2019-09-16：日期函数应用 - 当下时间日期格式化
+		// 难度 ★☆
+		// 返回某一时间的对应格式。
+		// 例子1、输入 yyyy-MM-dd HH:mm:ss，输出：2019-09-16 10:00:00
+		// 例子2、输入 yyyy年MM月dd日 HH时mm分ss秒，输出：2019年09月16日 10时00分00秒
+
+		const fill = num => num >= 10 ? num : ('0' + num);
+
+		const format = (date, formatStr) => {
+
+			return formatStr.replace('yyyy', date.getFullYear())
+			.replace('MM', fill(date.getMonth() + 1))
+			.replace('dd', fill(date.getDate()))
+			.replace('HH', fill(date.getHours()))
+			.replace('mm', fill(date.getMinutes()))
+			.replace('ss', fill(date.getSeconds()));
+		}
+
+		console.log(format(new Date(), 'yyyy年MM月dd日 HH时mm分ss秒'));
+
+		return format(new Date(), 'yyyy-MM-dd HH:mm:ss');
+	},
+	"2019-09-17" () {
+		// 2019-09-17：日期函数应用 - 输入n，输出n个月后的时间
+		// 难度 ★☆
+		// 如，返回3个月后的时间。如输入 3, 输出：2019-12-17 10:00:00
+
+		//	the first solution
+		const fill = num => num >= 10 ? num : ('0' + num);
+
+		const fewMonthsLater_0 = n => {
+
+			let date = new Date(),
+				month = date.getMonth() + 1, 
+				year = date.getFullYear();
+
+			let flag = n % 12 + month > 12 ? true : false;
+
+			flag ? (month = month + n % 12 - 12, year = year + 1 + Math.floor(n / 12)) : 
+				   (month = month + n % 12, year = year + Math.floor(n / 12));
+			
+			return year + '-' + fill(month) + '-' + fill(date.getDate()) + ' ' + fill(date.getHours()) + ':' + fill(date.getMinutes()) + ':' + fill(date.getSeconds());
+		}
+		console.log(fewMonthsLater_0(25));
+		//	the second solution
+		const format = (date, formatStr) => {
+
+			return formatStr.replace('yyyy', date.getFullYear())
+			.replace('MM', fill(date.getMonth() + 1))
+			.replace('dd', fill(date.getDate()))
+			.replace('HH', fill(date.getHours()))
+			.replace('mm', fill(date.getMinutes()))
+			.replace('ss', fill(date.getSeconds()));
+		}
+
+		const fewMonthsLater = n => {
+
+			var date = new Date();
+
+			return format(new Date(date.getFullYear(), date.getMonth() + n, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()), 'yyyy-MM-dd HH:mm:ss');
+		}
+
+		return fewMonthsLater(25);
+	},
+	"2019-09-18" () {
+		// 2019-09-18：日期函数应用 - 日期综合应用
+		// 难度 ★★★☆
+		// 请写一个函数 getDateTime，且可输入的参数有 today、yesterday、tomorrow、thisWeek、nearWeek、thisMonth、nearMonth、nearThreeMonth、thisYear
+		// 如：getDataTime('today', 'yyyy-MM-dd HH:mm:ss')，输出{beginTime: '2019-09-17 00:00:00', endTime: '2019-09-17 23:59:59'}
+		// getDataTime('thisYear', 'yyyy-MM-dd HH:mm:ss')，输出{beginTime: '2019-01-01 00:00:00', endTime: '2019-09-17 23:59:59'}
+		// getDataTime('tomorrow', 'yyyy-MM-dd HH:mm:ss')，输出{beginTime: '2019-09-18 00:00:00', endTime: '2019-09-18 23:59:59'}
+		// 且函数代码耦合度低，容易维护与拓展
+
+		const GetDataTime = {
+
+			init () {
+
+				let _self = this;
+
+				_self.now = new Date();
+				
+				return function (key, format) {
+
+					format = format || 'yyyy-MM-dd HH:mm:ss';
+
+					let {beginTime, endTime} = _self[key](format);
+
+					return {
+						beginTime,
+						endTime,
+						key
+					}
+				};
+			},
+			//	今天
+			today (format) {
+
+				let date = new Date();
+
+				return {
+					beginTime: this.format(new Date(this.format(date, 'yyyy-MM-dd') + ' 00:00:00'), format),
+					endTime: this.format(new Date(this.format(date, 'yyyy-MM-dd HH:mm:ss')), format)
+				}
+			},
+			//	昨天
+			yesterday(format) {
+				let date = new Date(),
+				yesterday = new Date(date.setDate(date.getDate() - 1));
+
+				return {
+					beginTime: this.format(new Date(this.format(yesterday, 'yyyy-MM-dd') + ' 00:00:00'), format),
+					endTime: this.format(new Date(this.format(yesterday, 'yyyy-MM-dd') + ' 23:59:59'), format)
+				}
+			},
+			//	明天
+			tomorrow (format) {
+
+				let date = new Date(),
+					tomorrow = new Date(date.setDate(date.getDate() + 1));
+
+				return {
+					beginTime: this.format(new Date(this.format(tomorrow, 'yyyy-MM-dd') + ' 00:00:00'), format),
+					endTime: this.format(new Date(this.format(tomorrow, 'yyyy-MM-dd') + ' 23:59:59'), format)
+				}
+			},
+			//	本周
+			thisWeek (format) {
+				let date = new Date(),
+					thisweek = new Date(date.setDate(date.getDate() - (date.getDay() - 1)));
+
+				return {
+					beginTime: this.format(new Date(this.format(thisweek, 'yyyy-MM-dd') + ' 00:00:00'), format),
+					endTime: this.format(new Date(this.format(new Date(), 'yyyy-MM-dd HH:mm:ss')), format)
+				}
+			},
+			//	本月
+			thisMonth (format) {
+				let date = new Date(),
+					thisMonth = new Date(date.setDate(1));
+
+				return {
+					beginTime: this.format(new Date(this.format(thisMonth, 'yyyy-MM-dd') + ' 00:00:00'), format),
+					endTime: this.format(new Date(this.format(new Date(), 'yyyy-MM-dd HH:mm:ss')), format)
+				}
+			},
+			//	本年
+			thisYear (format) {
+
+				let date = new Date();
+				return {
+					beginTime: this.format(new Date(this.format(date, 'yyyy') + '-01-01 00:00:00'), format),
+					endTime: this.format(new Date(this.format(new Date(), 'yyyy-MM-dd HH:mm:ss')), format)
+				}
+			},
+			//	近七天
+			nearWeek (format) {
+				
+				let date = new Date(),
+					nearWeek = new Date(date.setDate(date.getDate() - 7));
+				return {
+					beginTime: this.format(new Date(this.format(nearWeek, 'yyyy-MM-dd HH:mm:ss')), format),
+					endTime: this.format(new Date(this.format(new Date(), 'yyyy-MM-dd HH:mm:ss')), format)
+				}
+			},
+			//	近一个月
+			nearMonth (format) {
+				
+				let date = new Date(),
+					nearMonth = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds());
+				return {
+					beginTime: this.format(new Date(this.format(nearMonth, 'yyyy-MM-dd HH:mm:ss')), format),
+					endTime: this.format(new Date(this.format(date, 'yyyy-MM-dd HH:mm:ss')), format)
+				}
+			},
+			//	近三个月
+			nearThreeMonth (format) {
+				
+				let date = new Date(),
+					nearMonth = new Date(date.getFullYear(), date.getMonth() - 3, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds());
+				return {
+					beginTime: this.format(new Date(this.format(nearMonth, 'yyyy-MM-dd HH:mm:ss')), format),
+					endTime: this.format(new Date(this.format(date, 'yyyy-MM-dd HH:mm:ss')), format)
+				}
+			},
+			//	近一年
+			nearThreeMonth (format) {
+				
+				let date = new Date(),
+					nearMonth = new Date(date.getFullYear(), date.getMonth() - 12, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds());
+				return {
+					beginTime: this.format(new Date(this.format(nearMonth, 'yyyy-MM-dd HH:mm:ss')), format),
+					endTime: this.format(new Date(this.format(date, 'yyyy-MM-dd HH:mm:ss')), format)
+				}
+			},
+			//	日期格式化
+			format (date, formatStr) {
+
+				return formatStr.replace('yyyy', date.getFullYear())
+				.replace('MM', this.fill(date.getMonth() + 1))
+				.replace('dd', this.fill(date.getDate()))
+				.replace('HH', this.fill(date.getHours()))
+				.replace('mm', this.fill(date.getMinutes()))
+				.replace('ss', this.fill(date.getSeconds()));
+			},
+			fill (num){
+				return num >= 10 ? num : ('0' + num);
+			}
+		}
+
+		const getDataTime = GetDataTime.init();
+		
+		console.log(getDataTime('today'));
+		console.log(getDataTime('yesterday'));
+		console.log(getDataTime('tomorrow'));
+		console.log(getDataTime('thisWeek'));
+		console.log(getDataTime('thisMonth', 'yyyy年MM月dd日 HH时mm分ss秒'));
+		console.log(getDataTime('thisYear', 'yyyy年MM月dd日 HH时mm分ss秒'));
+		console.log(getDataTime('nearWeek'));
+		console.log(getDataTime('nearMonth'));
+		console.log(getDataTime('nearThreeMonth'));
+		return getDataTime('today', 'yyyy年MM月dd日 HH时mm分ss秒');
 	},
 	"2019-09-28" () {
-		//  2019-08-31：sku算法———多维属性状态判断
+		//  2019-09-31：sku算法———多维属性状态判断
         //  算法简化：假设只有3种状态：1、颜色：红蓝灰。2、尺码、大中小。型号、ABC。
         //  此时库存只有以下数据源：
         //  [
