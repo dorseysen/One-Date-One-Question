@@ -651,38 +651,354 @@ export const solution_201909 = {
 		console.log(getDataTime('nearThreeMonth'));
 		return getDataTime('today', 'yyyy年MM月dd日 HH时mm分ss秒');
 	},
-	"2019-09-28" () {
-		//  2019-09-31：sku算法———多维属性状态判断
-        //  算法简化：假设只有3种状态：1、颜色：红蓝灰。2、尺码、大中小。型号、ABC。
-        //  此时库存只有以下数据源：
-        //  [
-        //     { "颜色": "红", "尺码": "大", "型号": "A", "skuId": "3158054" },
-        //     { "颜色": "白", "尺码": "中", "型号": "B", "skuId": "3133859" },
-        //     { "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
-        //  ]
-		// 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
+	"2019-09-19" () {
+		// 2019-09-19：二维数组的全排列组合 - （阿里）
+		// 难度 ★★☆
+		// 如输入：[[1,2],[3,4],[5,6]]。
+		// 输出：[ [ 1, 3, 5 ], [ 1, 3, 6 ], [ 1, 4, 5 ], [ 1, 4, 6 ], [ 2, 3, 5 ], [ 2, 3, 6 ], [ 2, 4, 5 ], [ 2, 4, 6 ] ]
+
+		const fullPermutation = arr => {
+
+			return arr.reduce((acc, cur) => {
+
+				let res = [];
+
+				acc.forEach(ele => {
+
+					cur.forEach(item => {
+
+						res.push([ele, item]);
+					});
+				});
+
+				return res.map(item => item.flat(1));;
+
+			}, arr.shift());
+		}
+
+		console.log(fullPermutation([[1,2],[3,4],[5,6]]));
+
+		return fullPermutation([ [1, 2], [3], [5, 6], [7, 8, 9] ]);
+	},
+	"2019-09-20" () {
+
+		// 2019-09-20：数组次多成员
+		// 难度 ★★☆
+		// 求一个数组出现次数第二多的成员，允许只打印其中一个成员。
+		// 若该数组所有成员都仅仅只出现一次，则打印该数组没有第二多成员。
+		// 如输入：[1,2,3,4,5,3,3,100,100]。 输出：100
+
+		const secondTime = arr => {
+
+			if(new Set(arr).size === arr.length) return '该数组没有第二多成员';
+
+			let map = {};
+
+			arr.forEach(item => map[item] = !!map[item] ? map[item] + 1 : 1);
+
+			let mapArr = Array.from(new Set(Array.from(new Set(arr)).map(item => map[item])));
+
+			mapArr.sort((a, b) => b - a);
+
+			return Object.keys(map)[Object.values(map).indexOf(mapArr[1])];
+		}
+
+		console.log(secondTime([1,2,3,4,5,6,7,8,9,0]));
+
+		return secondTime([1,2,3,4,5,3,3,100,100]);
+	},
+	"2019-09-21" () {
+		// 2019-09-21：位数乘积，多次拆分相乘
+		// 难度 ★★☆
+		// 输入某一个正整数，输出将该正整数拆分成各个位数之积。且乘积结果若可以继续拆分，则继续拆分相乘，但最多只能拆分3次。
+		// 并将产生的所有中间结果式子输出。数据格式如下：
+		// 如输入：39: 输出：{ formula: [ '3*9=27', '2*7=14', '1*4=4' ], res: 4 }
+		// 如输入：18: 输出：{ formula: [ '1*8=8' ], res: 8 }
+		// 如输入: 159: 输出：{ formula: [ '1*5*9=45', '4*5=20', '2*0=0' ], res: 0 }
+		// 如输入：120: 输出：{ formula: [ '1*2*0=0' ], res: 0 }
+
+		const digitMultiply = num => {
+
+			let map = {
+				formula: [],
+				res: num
+			}
+			let index = 3;
+
+			while(map.res >= 10 && index > 0) {
+
+				let res = map.res.toString().split('').map(item => Number(item));
+
+				map.res = res.reduce((acc, cur) => acc * cur);
+
+				map.formula.push(res.join('*') + '=' + map.res);
+
+				index --;
+			}
+			return map;
+		}
+		return digitMultiply(159);
+	},
+	"2019-09-22" () {
+		// 2019-09-22：从一串只由空格和数字型字符组成的字符串里求出最大数和最小数
+		// 难度 ★
+
+		const getMaxAndMin = str => {
+
+			let arr = str.split(' ').map(item => Number(item));
+
+			return [Math.min.apply(Infinity, arr), Math.max.apply(-Infinity, arr)];
+		}
+
+		return getMaxAndMin('34 56 666 89.1 2 3 4 51 1478.6');
+	},
+	"2019-09-23" () {
+		// 2019-09-23：实现一个flat函数，即数组扁平化，允许传入一个参数num，表示扁平化几层
+		// 难度 ★★
+
+		const isNeedSplit = arr => {
+
+			let flag = false;
+
+			arr.forEach(item => Array.isArray(item) && (flag = true));
+
+			return flag;
+		}
+
+		const flat = (arr, num) => {
+
+			while(num-- && isNeedSplit(arr)) {
+
+				let mapArr = [];
+
+				arr.forEach(item => {
+					Array.isArray(item) ? mapArr.push(...item) : mapArr.push(item);
+				});
+				arr = mapArr;
+			}
+			return arr;
+		}
+
+		return flat([1,2,3,[1,2,[5,6,7]]], 1);
+	},
+	"2019-09-24" () {
+
+		// 2019-09-24：数据处理 - 按要求作答 （阿里）
+		// 难度 ★★☆
+		// 有数据结构如下：
+
+		var arr = [
+
+			{name:'小米1', value: 1,  type: 2, date: '2018-06-07T08:00:01.589Z' },
+		 
+			{name:'锤子T1', value: 1, type: 2, date: '2018-06-07T08:10:01.589Z' },
+		 
+			{name:'小米2', value: 1, type: 4, date: '2018-06-07T20:00:01.589Z' },
+		 
+			{name:'小米2', value: 4, type: 4, date: '2018-06-07T20:10:21.189Z' },
+		 
+			{name:'小米4', value: 1, type: 4, date: '2018-06-07T08:00:01.560Z' },
+		 
+			{name:'小米4', value: 2, type: 4, date: '2018-06-07T08:10:31.584Z' },
+		 
+			{name:'小米6', value: 1, type: 3, date: '2018-06-07T08:00:01.589Z' },
+		 
+			{name:'小米5s',value: 1, type: 4, date: '2018-06-07T08:00:01.589Z' },
+		 
+			{name:'锤子T2', value: 1, type: 4, date: '2018-06-07T08:00:01.589Z' },
+		 
+			{name:'锤子T1', value: 4, type: 4, date: '2018-06-07T08:06:01.589Z' },
+		 
+			{name:'魅蓝note5', value: 1, type: 4, date: '2018-06-07T08:00:01.589Z' },
+		 
+			{name:'魅蓝note2', value: 5, type: 4, date: '2018-06-02T08:07:01.589Z' },
+		 
+			{name:'魅蓝note2', value: 6, type: 4, date: '2018-06-07T08:00:01.589Z' },
+		 
+			{name:'魅蓝note3', value: 1, type: 4, date: '2018-06-05T08:00:01.589Z' },
+		 
+			{name:'魅蓝note', value: 1, type: 4, date: '2018-06-07T08:00:01.589Z' },
+		 
+			{name:'oppor9', value: 7, type: 4, date: '2018-06-04T08:04:01.588Z' },
+		 
+			{name:'华为p9', value: 1, type: 4, date: '2018-06-02T08:00:01.577Z' },
+		 
+			{name:'华为p9', value: 2, type: 4, date: '2018-06-07T08:00:01.110Z' },
+		 
+			{name:'华为p10', value: 1, type: 1, date: '2018-06-07T08:00:01.534Z' }
+		 
+		];
+		 
+		/**
+
+		* 请用您认为最优化的方式，将arr中的type为4的数据过滤出来，
 		
-		return "2019-09-28";
+		* 然后按相同的 name + date（按天）合并value（value累加），
+		
+		* 然后按 value 降序(从大到小)排序，
+		
+		* 最后每行按照 "${name},${本地日期},售出${sum(value)}部" 的格式，如："小米2,2017年06月08日,售出5部", 打印(console.log)出来。
+		
+		* 可以使用第三方js库，可以使用es6。
+		
+		* 请在半小时内完成。
+		*/
+
+		const format = (date, format) => {
+			
+			return format.replace('yyyy', date.getFullYear())
+						.replace('MM', date.getMonth() + 1)
+						.replace('dd', date.getDate());
+		}
+
+		const tranData = arr => {
+
+			let newArr = arr.filter(item => item.type === 4);
+			
+			let map = {};
+
+			newArr.forEach(item => {
+
+				let key = item.name + format(new Date(item.date), 'yyyy年MM月dd日');
+
+				map[key] ? map[key].value += item.value : map[key] = item;
+			});
+
+			return Object.values(map).map(item => {
+
+				var date = format(new Date(item.date), 'yyyy年MM月dd日');
+
+				return `${item.name},${date},售出${item.value}部`;
+			});
+		}
+
+		return tranData(arr);
+	},
+	"2019-09-25" () {
+		// 2019-09-25：不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标 （阿里）
+		// 难度 ★
+
+		// the first solution
+
+		const createArr0 = () => new Array(100).join(',').split(',').map((item, index) => index);
+
+		console.log(createArr0());
+
+		// the second solution
+
+		const createArr = () => Array.from({length: 100}, (item, index) => index);
+
+		return createArr();
+	},
+	"2019-09-26" () {
+
+		// 2019-09-26：实现数组乱序 （阿里）
+		// 难度 ★
+
+		const disorder = arr => arr.sort(() => Math.random() - 0.5);
+
+		return disorder([1,2,3,4,5,6,7,8,9,10]);
+	},
+	"2019-09-27" () {
+
+		// 2019-09-27：数组缺失成员 - 综合 （腾讯）
+		// 难度 ★★★☆
+
+		// 有一组数字，从1到n（假设n=10000），从中任意删除了3个数，顺序也被打乱，剩余数字放在一个n-3的数组里，请找出丢失的数字，要求算法比较快。
+
+		const handle = n => {
+
+			//	创建原数组
+			let arr = Array.from({length: n}, (item, index) => index + 1);
+
+			//	随机删除3个成员
+			let defectArr = arr.map(item => item).sort(() => Math.random() - 0.5).splice(0, n - 3);
+			
+			//	找出丢失的数字
+
+			console.time('2019-09-27 算法题时间测试');
+
+			let map = {};
+
+			defectArr.forEach(item => map[item] = 1);
+			
+			console.log(arr.filter(item => map[item] !== 1));
+
+			console.timeEnd('2019-09-27 算法题时间测试');
+
+			return '2019-09-27 算法题时间测试';
+		}
+		return handle(100000);
+	},
+	"2019-09-28" () {
+		// 2019-09-28：有一个长度为100的数组，请以优雅的方式求出该数组的前10个元素之和 （阿里）
+		// 难度 ★
+
+		const getSum = arr => arr.splice(0, 10).reduce((acc, cur) => acc + cur);
+
+		return getSum([12,3,4,5,6,1,3,4,6,88,123,90,31,43]);
 	},
 	"2019-09-29" () {
+		// 2019-09-29：正则应用 - 匹配二级域名 （阿里）
+		// 难度 ★
+
+		// 请写个正则表达式匹配所有二级域名是9game.cn和其目录下的网址，比如：http://abc.9game.cn/sname/view/
+		// 如果这个非常重要的话，怎么保护他呢？
+
+		const domainMatch = domain => /.*(.9game.cn).*/g.test(domain);
+
+		console.log(domainMatch('http://abc.9game.cn/sname/view/'));
+
+		return `
+			\n	域名保护：可以从两种不同的维度来讲：
+			\n	其一是安全：域名是靠注册的，所以其实是有被盗取的风险的，所以除了实名认证之外还需要有其他的保护措施，比如相关的域名证书，对于企业来说，域名的需求其实不算少，而假如都需要实名认证，单纯老板或股东可能还不够，而且老板和股东身份可能更加重要，所以可以委托信得过的下属实名注册加以保护。
+			\n	其二则是品牌：这个域名对于公司或企业其实也是一种品牌，比如taobao.com，而当公司品牌效应打出去之后，往往这个域名甚至相关相似名字的域名就很重要了比如tooboo.com，淘淘等等，而假如这些域名被其他公司或其他人注册了之后，并以此做推广，而这些公司或个人除了靠品牌效应迅速获得利益之外，很难保证其会对这个品牌负责，而长久来说这对本公司该品牌是一种损害，这也是为什么市场常见到的域名抢注，域名回购等情况。而对于此一个最有效的措施就是先将这个域名相似的域名也一并抢注下来，尽量减免被人利用，影响公司品牌的推广。
+			`;
+	},
+	"2019-09-30" () {
+		// 2019-09-29：伪类基础 - 简单继承
+		// 难度 ☆
+		class Parent {
+
+			methodA () {
+				console.log('parent-123');
+			}
+		}
+
+		class Children extends Parent {
+
+			methodA () {
+
+				super.methodA();
+				console.log('children-123');
+			}
+		}
+
+		let c1 = new Children();
+
+		c1.methodA();
+		
+		return "2019-09-30 伪类基础";
+	},
+	"2019-09-31" () {
 
 		// 2019-09-29：动态规划 —— 找零钱
 
 		return "2019-09-29"
-	},
-	"2019-09-30" () {
-
-		//  2019-09-30：金额平均分配问题
-        //  相比于上方的负载均衡，这里的金额分配显得更加接地气一些，问题具体如下：
-        //  某外卖商场某时刻接收到的订单有若干单，每单的金额不等，单子的金额越大，所需要做的事情越多，
-        //  因而需要根据单子的金额大小尽可能平均分配给对应的下属加盟连锁店，如何分配？
-
-        //  假设某一时刻的订单列表详情为 [{amount: 156, id: 1}, {amount: 23.5, id: 2}, {amount: 19, id: 3}...]
-
-        // const averageAmount = (amounts, horseMan) => {
-
-        //     amounts.reduce((acc, cur) => acc.amounts + cur.amounts);
-		// }
-		return "2019-09-30"
 	}
+	// "2019-09-30" () {
+
+	// 	//  2019-09-30：金额平均分配问题
+    //     //  问题具体如下：
+    //     //  某外卖商场某时刻接收到的订单有若干单，每单的金额不等，单子的金额越大，提成越高，但所需要做的事情也越多，
+    //     //  故而需要根据单子的金额大小尽可能平均分配给对应的下属加盟连锁店，如何分配？
+
+    //     //  假设某一时刻的订单列表详情为 [{amount: 156, id: 1}, {amount: 23.5, id: 2}, {amount: 19, id: 3}...]
+
+    //     // const averageAmount = (amounts, horseMan) => {
+
+    //     //     amounts.reduce((acc, cur) => acc.amounts + cur.amounts);
+	// 	// }
+	// 	return "2019-09-30"
+	// }
 }
