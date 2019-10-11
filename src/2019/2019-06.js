@@ -41,9 +41,7 @@ export const solution_201906 = {
                         p = j + 1;
                         break;
                     }
-
                 }
-
             }
             return res;
         }

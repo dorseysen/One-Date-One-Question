@@ -864,7 +864,9 @@ export const solution_201909 = {
 				map[key] ? map[key].value += item.value : map[key] = item;
 			});
 
-			return Object.values(map).map(item => {
+			let val = Object.values(map).sort((a, b) => a.value > b.value ? -1 : 1);
+
+			return val.map(item => {
 
 				var date = format(new Date(item.date), 'yyyy年MM月dd日');
 
@@ -956,11 +958,12 @@ export const solution_201909 = {
 			`;
 	},
 	"2019-09-30" () {
-		// 2019-09-29：伪类基础 - 简单继承
+		// 2019-09-30：伪类基础 - 简单继承
 		// 难度 ☆
 		class Parent {
 
 			methodA () {
+				
 				console.log('parent-123');
 			}
 		}
@@ -979,26 +982,5 @@ export const solution_201909 = {
 		c1.methodA();
 		
 		return "2019-09-30 伪类基础";
-	},
-	"2019-09-31" () {
-
-		// 2019-09-29：动态规划 —— 找零钱
-
-		return "2019-09-29"
 	}
-	// "2019-09-30" () {
-
-	// 	//  2019-09-30：金额平均分配问题
-    //     //  问题具体如下：
-    //     //  某外卖商场某时刻接收到的订单有若干单，每单的金额不等，单子的金额越大，提成越高，但所需要做的事情也越多，
-    //     //  故而需要根据单子的金额大小尽可能平均分配给对应的下属加盟连锁店，如何分配？
-
-    //     //  假设某一时刻的订单列表详情为 [{amount: 156, id: 1}, {amount: 23.5, id: 2}, {amount: 19, id: 3}...]
-
-    //     // const averageAmount = (amounts, horseMan) => {
-
-    //     //     amounts.reduce((acc, cur) => acc.amounts + cur.amounts);
-	// 	// }
-	// 	return "2019-09-30"
-	// }
 }
