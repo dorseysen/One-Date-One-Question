@@ -29,10 +29,10 @@ npm run build
 
 > 如2019目录迁移至each-language-solution/JavaScript/2019
 
-> python版的由于目前本人对于其模块化与门面化理解还不够深，暂时先通过在each-language-solution目录下打开终端执行python ./index.py
 
+python版的由于目前本人对于其模块化与门面化理解还不够深，暂时先通过在each-language-solution目录下打开终端执行python ./index.py
 
-### python-running：
+### python-running：终端执行python ./index.py
 ![如图](https://github.com/dorseysen/One-Date-One-Question/blob/master/src/asset/images/python_run.png)
 
 
