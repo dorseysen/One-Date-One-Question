@@ -1,5 +1,5 @@
 
-import * as _2019 from './2019';
+import * as _2019 from './each-language-solution/JavaScript/2019';
 
 export class OneDateOneQuestion {
 

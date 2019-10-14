@@ -242,14 +242,31 @@ export const solution_201910 = {
 
 		// 如输入：12345678.12345，输出： 12,345,678.12345;
 
+		// the first solution  -  传统法
+		
+		const tranNumber_0 = num => {
+
+			let arr = num.toString().split('.');
+
+			let con = arr[0].split('');
+
+			let integerPart = con.map((item, index) => index % 3 === con.length % 3 && (con.length - 1 - index) !== 0 ? ',' + item : item).join('');
+			
+			return arr.length > 1 ? integerPart + '.' + arr[1] : integerPart;
+
+		}
+		console.log(tranNumber_0(12345678.123));
+		// the second solution  -  正则替换
 		const tranNumber = num => {
 
-			let con = num.toString().split('.')[0].split('');
+			let arr = num.toString().split('.');
 
-			return con.map((item, index) => index % 3 === con.length % 3 && (con.length - 1 - index) !== 0 ? ',' + item : item).join('');
+			let integerPart = arr[0].replace(/\d(?=(\d{3})+$)/g, '$&,');
+
+			return arr.length > 1 ? integerPart + '.' + arr[1] : integerPart;
 		}
 
-		return tranNumber(12345678);
+		return tranNumber(12345678.123);
 	},
 	"2019-10-11" () {
 		// 2019-10-11：实现document.querySelector
@@ -264,7 +281,7 @@ export const solution_201910 = {
 
 				let arr = str.split(','),
 					select = arr[arr.length - 1].trim(),
-					reg = /[.#\[]]/.exec(select);
+					reg = /[.#\[]/.exec(select);
 
 				if( reg ) {
 
@@ -289,6 +306,78 @@ export const solution_201910 = {
 			}
 		}
 		return document1.querySelector('div[class=container]');
+	},
+	"2019-10-12" () {
+		// 2019-10-12：与固定值之和为完全平方数
+		// 难度 ★
+		// 求0-10000的区间是否存在一个整数，这个整数加上100后它是一个完全平方数，加上268后又是一个完全平方数。求该数为多少，若存在多个则一并列出
+
+		const integerTarget = () => {
+
+			let res = [];
+
+			for(let i = 0; i < 10000; i ++) {
+
+				if( Math.floor(Math.sqrt( i + 100 )) === Math.sqrt( i + 100 ) && Math.floor(Math.sqrt( i + 268 )) === Math.sqrt( i + 268 ) ) {
+
+					res.push(i);
+				}
+			}
+
+			return res;
+		}
+		
+		return integerTarget();
+	},
+	"2019-10-13" () {
+		// 2019-10-13：数字大小比较
+		// 难度 ★
+		// 输入三个数字，从小到大输出
+		// 如输入：67,892,112，输出：17,112,892
+
+		// the first solution
+		const compareSize_0 = (n1, n2, n3) => [n1, n2, n3].sort((a, b) => a - b).join(',')
+		
+		console.log(compareSize_0(67, 892, 112));
+
+		// the second solution
+		const compareSize = (n1, n2, n3) => {
+
+			n1 > n2 && ([n1, n2] = [n2, n1]);
+			n2 > n3 && ([n2, n3] = [n3, n2]);
+			n1 > n3 && ([n1, n3] = [n3, n1]);
+
+			return n1 + ',' + n2 + ',' + n3;
+		}
+
+		return compareSize(67, 892, 112);
+	},
+	"2019-10-14" () {
+		// 2019-10-14：求40以内偶数之和与奇数之和
+		// 难度 ★
+
+		const sumRange = range => {
+
+			let arr = Array.from({length: range[1] - range[0] + 1}, (item, index) => index + range[0]);
+
+			const sumUnit = (arr, type) => {
+
+				let arrFilter = [];
+
+				switch(type) {
+
+					case 'even': arrFilter = arr.filter(item => item % 2 === 0); break;
+					case 'odd': arrFilter = arr.filter(item => item % 2); break;
+				}
+				return arrFilter.join('+') + '=' + arrFilter.reduce((acc, cur) => acc + cur);
+			}
+			
+			return {
+				'even': sumUnit(arr, 'even'),
+				'odd': sumUnit(arr, 'odd')
+			}
+		}
+		return sumRange([1, 40]);
 	},
 	"2019-10-29" () {
 		
