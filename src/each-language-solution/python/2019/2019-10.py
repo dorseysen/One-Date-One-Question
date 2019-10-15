@@ -2,6 +2,11 @@
 
 import math
 import numpy
+from functools import reduce
+
+from docs.dictionary import dictOne
+
+
 # 2019-10-12：与固定值之和为完全平方数
 # 难度 ★
 # 求0-10000的区间是否存在一个整数，这个整数加上100后它是一个完全平方数，加上268后又是一个完全平方数。求该数为多少，若存在多个则一并列出
@@ -29,20 +34,43 @@ def _20191013():
 
 def _20191014():
 
-    def is_even(n):
+    def isEven(n):
         return n % 2 == 0
 
-    def is_odd(n):
+    def isOdd(n):
         return n % 2
 
     def sum(sumRange):
         # arr = [i + sumRange[0] for i in range(sumRange[1] - sumRange[0] + 1)]
         arr = list(range(sumRange[0], sumRange[1]))
-        oddArr = list(filter(is_odd, arr))
-        evenArr = list(filter(is_even, arr))
+        oddArr = list(filter(isOdd, arr))
+        evenArr = list(filter(isEven, arr))
         return {
             'odd': '+'.join(str(i) for i in oddArr) + '=' + str(numpy.sum(oddArr)),
             'even': '+'.join(str(i) for i in evenArr) + '=' + str(numpy.sum(evenArr))
         }
     return sum([1, 41])
 
+# 2019-10-15：数据结构调整，数据来源$state.temp，python中放在了字典文件里：dictOne
+# 难度 ★
+# 将数据中id为0的数据的checked转为false。
+
+def _20191015():
+
+    def change (item):
+        if item['id'] == 0:
+            item['checked'] = True 
+        return item
+    return list(map(change, dictOne))
+
+
+
+def _20191016():
+
+    def sum(acc, cur):
+        return acc + cur
+
+    def reduceTest(arr):
+        return reduce(sum, arr)
+    
+    return reduceTest([1,2,3,4,5,6,7])

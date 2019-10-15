@@ -5,3 +5,10 @@ export const Date = {
 
 export const arr100 = (() => Array.from({length: 100}, (item, index) => index + 1))();
 
+export const temp = [
+    {id: '', name: '全部', checked: true},
+    {id: 0, name: '解析中', checked: false},
+    {id: 1, name: '已取消', checked: false},
+    {id: 2, name: '已完成', checked: false}
+]
+

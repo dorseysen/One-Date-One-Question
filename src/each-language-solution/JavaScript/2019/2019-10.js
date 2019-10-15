@@ -379,13 +379,21 @@ export const solution_201910 = {
 		}
 		return sumRange([1, 40]);
 	},
+	"2019-10-15" () {
+		// 2019-10-15：数据结构调整，数据来源$state.temp
+		// 难度 ★
+		// 将数据中id为0的数据的checked转为false。
+
+		const tranData = data => data.map(item => item.id === 0 ? (item.checked = true, item) : item );
+
+		return tranData(JSON.parse(JSON.stringify($state.temp)))
+	},
 	"2019-10-29" () {
 		
 		// 2019-10-29：动态规划 —— 找零钱
 
 		return "2019-10-29";
 	},
-	
     "2019-10-30" () {
 
         // 2019-09-31：sku算法———多维属性状态判断
