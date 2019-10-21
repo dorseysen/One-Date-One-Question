@@ -388,6 +388,125 @@ export const solution_201910 = {
 
 		return tranData(JSON.parse(JSON.stringify($state.temp)))
 	},
+	"2019-10-16" () {
+		// 2019-10-16：三角面积计算
+		// 难度 ★★
+		// 已知三角形的三个点（一定能组成三角形，可不做判断，当然判断也不难），求三角形的面积
+		// 如输入[[0, 0], [8, 0], [8, 8]]， 输出 32
+
+		const triangleArea = (trianglePoint) => {
+
+			let [[x1, y1], [x2, y2], [x3, y3]] = trianglePoint;
+			
+			let base = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2),
+
+				k = (y2 - y1) / (x2 - x1); //	kx - y + y1 - kx1 = 0
+
+			return base * Math.abs((k * x3 - y3 + y1 - k * x1) / Math.sqrt(k ** 2 + 1)) / 2
+		}
+		return triangleArea([[0, 0], [9, 0], [8, 8]]);
+	},
+	"2019-10-17" () {
+		// 2019-10-17：三数之和
+		// 难度 ★
+		// 给定一个数组，若数组中任意三个不同的数（数可以相同，但数在数组的下标不能一致）之和为0，则输出这组数
+		const sum = arr => {
+
+			let res = [];
+
+			for(let i = 0; i < arr.length - 2; i ++) {
+
+				for(let j = i + 1; j < arr.length - 1; j ++) {
+
+					for(let k = j + 1; k < arr.length; k ++) {
+
+						if( arr[i] + arr[j] + arr[k] === 0) {
+
+							res.push([arr[i], arr[j], arr[k]]);
+						}
+					}
+				}
+			}
+			return res;
+		}
+		return sum([1,1,2,3,4,5,-1,-2,-3,-4,-5]);
+	},
+	"2019-10-18" () {
+		// 2019-10-18：一个大数组中，包含若干个小数组，取各个小数组最大的数，返回一个最大数组成的新数组。
+		// 难度 ★
+		const largestNumArr = arr => arr.map(item => Math.max.apply(-Infinity, item));
+
+		return largestNumArr([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+	},
+	"2019-10-19" () {
+		// 2019-10-19：字符串压缩
+		// 难度 ★★
+		// 如：xxxyyyyyyz => 3x6yz
+		// 如: xyzyxyzyxyz => xyzyxyzyxyz
+
+		const compressStr = str => str.replace(/(.)\1+/g, (s, n) => s.length + n);
+
+		return compressStr('xxxyyyyyyz')
+	},
+	"2019-10-20" () {
+		// 2019-10-20：简单抽奖 —— 生成n个输入范围在a ~ b内的不同随机整数。
+		// 难度 ★★
+		// 函数接收3个数字，分别为a, b, n。
+
+		// the first solution —— 传统法
+		const randomNums_0 = (a, b, n) => {
+
+			if(n <= 0 || Math.floor(n) !== n) throw 'n需要为正整数'; 
+
+			let res = [];
+
+			const createRandom = (a, b) => Math.floor(Math.random() * (b - a) + a);
+
+			while(n) {
+
+				let val = createRandom(a, b);
+				if(res.indexOf(val) === -1) {
+					res.push(val);
+					n --;
+				}
+			}
+			return res;
+		}
+		console.log(randomNums_0(1, 100, 5));
+
+		// the second solution —— 利用数组机制
+		const randomNums = (a, b, n) => {
+
+			let arrList = Array.from({length: b - a}, (item, index) => index + a),
+				res = [];
+
+			while(n --) {
+
+				let i = Math.floor(Math.random() * arrList.length);
+				res.push(arrList[i]);
+
+				arrList.splice(i, 1);
+			}
+			return res;
+		}
+		return randomNums(1, 100, 5);
+	},
+	"2019-10-21" () {
+		// 2019-10-21：Fizz Buzz
+		// 难度 ★★
+		// 给定一个 数字 作为输入值, 打印出从 1 到给定数字的所有整数。 
+		// 但是，当整数可以被 2 整除时，打印出“Fizz”; 当它可以被3整除时，打印出“Buzz”; 
+		// 当它可以同时被2和3整除时，打印出“Fizz Buzz”。
+		// 为了方便，可以将结果先合并成一个数组一起输出
+
+		const fizzBuzz = num => {
+
+			let arr = Array.from({length: num}, (item, index) => index + 1);
+
+			return arr.map(item => item % 2 === 0 ? 'Fizz' : item % 3 === 0 ? 'Buzz' : item);
+		}
+		return fizzBuzz(20);
+	},
 	"2019-10-29" () {
 		
 		// 2019-10-29：动态规划 —— 找零钱

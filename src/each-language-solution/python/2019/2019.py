@@ -8,8 +8,6 @@ def questionFilter (ele):
 
 print("函数队列：" + str(list(filter(questionFilter, dir(__solution201910)))))
 
-print("函数队列：" + str(filter(questionFilter, dir(__solution201910))))
-
 print("=================== start 2019-10 ==========================")
 def _201910():
     for ele in dir(__solution201910):
