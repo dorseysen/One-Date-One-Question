@@ -454,21 +454,24 @@ export const solution_201910 = {
 		// 函数接收3个数字，分别为a, b, n。
 
 		// the first solution —— 传统法
+
 		const randomNums_0 = (a, b, n) => {
 
-			if(n <= 0 || Math.floor(n) !== n) throw 'n需要为正整数'; 
+			if(n <= 0 || Math.floor(n) !== n) throw 'n需要为正整数';
 
+			//	建一个数组
 			let res = [];
-
+		
+			//	生成 a~b 的随机号码
 			const createRandom = (a, b) => Math.floor(Math.random() * (b - a) + a);
-
+		
 			while(n) {
-
+		
 				let val = createRandom(a, b);
-				if(res.indexOf(val) === -1) {
-					res.push(val);
-					n --;
-				}
+				if(res.indexOf(val) === -1) {	//	如果这个随机的号码在幸运者的队列中不存在
+					res.push(val);	//	则将这个号码添加进去
+					n --;		//	这里的n是幸运者的人数，当队列中多了一个幸运者，n就减一
+				}				//	否则重新生成随机数
 			}
 			return res;
 		}
@@ -507,41 +510,221 @@ export const solution_201910 = {
 		}
 		return fizzBuzz(20);
 	},
+	"2019-10-22" () {
+		// 2019-10-22：完美数
+		// 难度 ★
+		// 如果一个数恰好等于除了它本身之外的约数之和，则称该数为“完美数”。
+		// 请写一个函数，输出某个范围内的“完美数”。
+		// 约数：一个数能被另一个数整除，这个数就是它的约数。比如
+		// 4的约数是：1,2,4
+		// 6的约数是：1,2,3,6
+		// 这里定义是排除掉它本身，也就是说：6 = 1 + 2 + 3，实际上6就是一个完美数
+
+		const perfectNums = (min, max) => {
+
+			let res = [];
+
+			for(let i = min; i <= max; i ++) {
+
+				let sum = 0,
+					arr = [];
+
+				for(let j = 1; j < i; j ++) {
+
+					i % j === 0 && ( sum += j, arr.push(j) );
+				}
+
+				i === sum && res.push(arr.join('+') + '=' + i);
+			}
+			return res;
+		}
+		return perfectNums(1, 10000);
+	},
+	"2019-10-23" () {
+		// 2019-10-23：输入三个点，判断这三个点的连线是否一定能组成一个三角形，如果是，返回true，否则返回false
+		// 难度 ★
+		// 输入的形式为：[[1, 2], [2, 3], [3, 4]]
+
+		const iSCanBeTriangle = pointList => {
+
+			let [[x1, y1], [x2, y2], [x3, y3]] = pointList;
+
+			return (y2 - y1) / (x2 - x1) !== (y3 - y2) / (x3 - x2)
+		}
+		
+		return iSCanBeTriangle([[1, 2], [2, 3], [-4, -3]])
+	},
+	"2019-10-24" () {
+		// 2019-10-24：程序员节，自由发挥
+		// 难度 ※
+
+		// 写一首程序员打油诗吧
+
+		const poem = () => {
+
+			return `
+					十年编程两茫茫
+					工期短，需求长
+					千行代码，Bug何处藏
+					纵使上线又如何，新版本，继续忙
+					黑白颠倒没商量，睡地铺，吃食堂
+					夜半梦醒，无人在身旁
+					最怕灯火阑珊时，手机响，心里慌
+
+					1024咫尺旁
+					纵欢欣，无慌乱
+					开发测试，恪守如日常
+					996加007，举头望，明月还
+					世上安得两全法，苦归苦，心坦荡
+					转眼余年，秃顶无人管
+					中年何处是归途？问苍天，眼茫然
+				`
+		}
+		return poem();
+	},
+	"2019-10-25" () {
+		// 2019-10-25：母牛生母牛问题
+		// 难度 ★★
+		// 母牛每年生一只母牛，新出生的母牛成长三年后也能每年生一只母牛，假设不会死。
+		// 现在已知第一年的时候母牛的数量为10头，求第N年时，母牛的数量。
+		
+		// 问题可以简化为第N年出生的母牛数量 + 第N - 1年原有的母牛数量之和
+		const cowProduceCalf = (originVal, n) => {
+
+			const cowUnit = n => {
+
+				if(n < 1) return;
+
+				let count = 0;
+
+				if(n > 4) {
+
+					count = cowUnit(n - 1) + cowUnit(n - 3);
+				}else{
+					count = n;
+				}
+				return count;
+			}
+
+			return originVal * cowUnit(n);
+		}
+		return cowProduceCalf(10, 5);
+	},
+	"2019-10-26" () {
+
+		// 2019-10-26：长途车问题
+		// 难度 ★★★☆
+
+		// 小明开车跑一段2000公里长的路，车每次加满油可以走300公里，车要加油，路边有加油站，加油站的间隔不是固定的。
+		// 加油站的序号为：1、2、3、4、5、6...
+		// 加油站之间的距离遵循这样的循环间： [51, 48, 65, 38, 66, 90, 74, 47, 23...]。
+		// 即第1个加油站和第2个加油站间隔51公里，第2个和第3个间隔48公里，以此类推，
+		// 第9个和第10个加油站间隔23，为了简化，接下来第10个加油站和第11个加油站的距离又重新变回51...
+
+		// 1、求小明这段路上他最少要加几次油，分别在哪些加油站加过油。
+
+		// 2、小华的车比小明的车更加省油，他的车加满油可以走350公里，则他需要加几次油并且在哪些加油站加油。
+
+		class coach {
+
+			constructor (travelDistance, actionRadius) {
+
+				this.travelDistance = travelDistance;	//	车子路程
+				
+				this.actionRadius = actionRadius;		//	车子满油半径
+
+				this.gasListUnit= [51, 48, 65, 38, 66, 90, 74, 47, 23];		//	加油站间隔数组单元
+
+				this.gasList = this.gasListUnit;	//	加油站间隔数组，实际的应用则是直接读取某条路上加油站的数据，无需这样生成
+
+				this.distance = 0;
+
+				this.res = [];	//	记录车子停靠加油的加油站
+
+				this.init();
+			}
+
+			init () {
+
+				this.createGasList();
+
+				this.puttingGas();
+
+				this.outputResult();
+			}
+			//	创建加油站数组
+			createGasList () {
+
+				while(this.gasList.reduce((acc, cur) => acc + cur) < this.travelDistance) {
+					this.gasList = [...this.gasList, ...this.gasListUnit];
+				}
+			}
+			//	记录旅途中车子停靠加油的油站站点。
+			puttingGas () {
+
+				this.gasList.reduce((acc, cur, index) => {
+
+					this.distance += cur;
+
+					acc > this.actionRadius && this.distance < this.travelDistance && (acc = 0, this.res.push(index + 1));
+
+					return acc + cur;
+				});
+			}
+			outputResult () {
+
+				console.log('车子在旅途中，分别在第' + this.res.join('、') + '号加油站加过油, 总计加油' + this.res.length + '次');
+			}
+		}
+		console.log('小明：');
+		new coach(2000, 300);
+		console.log('小华：');
+		return new coach(2000, 350);
+	},
+	"2019-10-27" () {
+		// 2019-10-27：不改变原数组 arr，在数组 arr 末尾添加元素 item。返回新的数组
+		// 难度 ☆
+
+		// the first solution	concat
+		const add_0 = ( arr, item ) => arr.concat(item);
+
+		console.log(add_0( [1,2,3,4,5], 6 ));
+
+		// the second solution	和concat差不多，换汤不换药
+		const add = (arr, item) => [...arr, item];
+
+		return add( [1,2,3,4,5], 6 );
+	},
+	"2019-10-28" () {
+		// 2019-10-28：统计数组中的值为item的个数
+		// 难度 ☆
+
+		const statisNum = (arr, item) => arr.filter(el => el === item).length;
+
+		return statisNum([1,2,3,4,5,1,2,3,4,1,2,3,1,2], 2);
+	},
 	"2019-10-29" () {
 		
-		// 2019-10-29：动态规划 —— 找零钱
+		// 2019-10-29：为数组 arr 中的每个元素求二次方。不要直接修改数组 arr，结果返回新的数组
+		// 难度 ☆
 
-		return "2019-10-29";
+		const squareArr = arr => arr.map(item => item ** 2);
+
+		return squareArr([1,2,3,4,5,6,7]);
 	},
-    "2019-10-30" () {
+	"2019-10-30" () {
+		
+		// 2019-10-30：在数组 arr 中，查找值与 item 相等的元素出现的位置
+		// 难度 ☆
 
-        // 2019-09-31：sku算法———多维属性状态判断
-		// 难度 ★★★☆
-        // 算法简化：假设只有3种状态：1、颜色：红蓝灰。2、尺码、大中小。型号、ABC。
-        // 此时库存只有以下数据源：
-		// [
-		// 	{ "颜色": "红", "尺码": "大", "型号": "A", "skuId": "3158054" },
-		// 	{ "颜色": "白", "尺码": "中", "型号": "B", "skuId": "3133859" },
-		// 	{ "颜色": "蓝", "尺码": "小", "型号": "C", "skuId": "3516833" }
-		// ]
-		// 数据源不可选时将选项按钮置灰并禁用点击，请写出该SKU算法。
-		return "2019-10-30";
+		const targetIndex = (arr, item) => arr.map( (item, index) => { return { key: item, value: index } } )
+											.filter(item => item.key === item)
+											.map(item => item.value);
+
+		return targetIndex([1,2,3,4,5,1,2,3,4,1,2,3,1,2], 2);
 	},
 	"2019-10-31" () {
-
-		//  2019-10-31：金额平均分配问题
-        //  问题具体如下：
-        //  某外卖商场某时刻接收到的订单有若干单，每单的金额不等，单子的金额越大，提成越高，但所需要做的事情也越多，
-        //  故而需要根据单子的金额大小尽可能平均分配给对应的下属加盟连锁店，如何分配？
-
-        //  假设某一时刻的订单列表详情为 [{amount: 156, id: 1}, {amount: 23.5, id: 2}, {amount: 19, id: 3}...]
-
-        // const averageAmount = (amounts, horseMan) => {
-
-        //     amounts.reduce((acc, cur) => acc.amounts + cur.amounts);
-		// }
-		return "2019-10-31"
+		
+		// 2019-10-31：
 	}
 }
-
-
